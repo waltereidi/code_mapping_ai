@@ -1,0 +1,25 @@
+--main layers 
+structural comprehension
+call flow comprehension
+tech stack / client heuristics 
+
+
+--break down
+1 -- *****structural comprehension
+relacionamento de tabelas [dados armazenados no banco garante que sejam dados persistidos e reutilizados],[podem ser utilizados por varias fontes]
+mapeamento de formas de armazenmento de dados em disco -- mapear todas as formas de mapeamento persistente disco , pedras , cds etc..
+memoria ram , armazenamento temporário 
+
+
+
+
+
+
+****call flow comprehensio
+---UI do sistema 
+identificar inicio e fim de uma chamada de dados 
+
+
+****tech stack 
+nome de aplicações, principais artefatos
+--nome de arquivos 
