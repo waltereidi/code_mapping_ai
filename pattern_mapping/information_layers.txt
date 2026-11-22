@@ -1,3 +1,4 @@
+salve as specs em C:\Users\walte\OneDrive\Documentos\specs_test_ia1
 --main layers 
 faça as specs de uma forma que respeite os 3 niveis abaixo sendo dependentes dos niveis acima,
 identifique a ordem de execução necessária para garantir que seja estabelecido uma hierarquia de informações que siga a ordem abaixo:
@@ -29,6 +30,8 @@ antes de iniciar o mapeamento, ou que seja um mapeamento que onde suas dependenc
 o mapeamento em codigo c# deve primeiro mapear toda a assinatura de código , e garantir que seu formato possa ser reutilizado e incrementado quando houver modificações no código
 classifique como parte principal para criar as identidades como : classes , metodos , descarte variaveis de classe e metodos.
 -- o mapeamento de infraestrutura deve saber e perguntar o nome da aplicação em que o código mapeado faz parte 
+--- no fim do mapeamento inicial separe as procedures encontradas em um arquivo de texto com o select montado para solicitar 
+a alimentação desses dados pelo usuário que está executando
 
 
 
@@ -37,6 +40,7 @@ classifique como parte principal para criar as identidades como : classes , meto
 ****call flow comprehensio
 [ neste nível o mapeamento é referente á uma identidade do nível anterior ]
 ---UI do sistema 
+** as condições como procedures mapeadas devem ter o codigo fonte fornecido antes de iniciar esta etapa
 identificar inicio e fim de uma chamada de dados 
 deve haver uma estrutura que agrege chamadas onde sua identidade única seja a mesma da fonte que a chamou  /??/
 mapeamento de call flow deve aproveitar e identificar em cima das estruturas identificadas e montar um um fluxo de ponta a ponta 
@@ -55,14 +59,26 @@ nome de aplicações, principais artefatos
 é importante que o mapeamento identifique quais identidades fazem parte de sua tech stack 
 é importante que o mapeamento identifique quais abstrações fazem parte da mesma heuristica de negócio mesmo de de aplicações diferentes
  abstrações de negócio palavras comuns devem ser agregadas á uma identidade única de onde foi mapeada 
-aqui é importante que seja possível ter um glossário e este glossário esteja contido no
+aqui é importante que seja possível ter um glossário e este glossário esteja contido no, mapeie e armazene todas as nome de variaveis que se assemelham a 
+alguma palavra que pode ser utilizada para traduzir a chamada para a leitura natural depois
 mapeamento de um conjunto de identidades com um call flow 
 
 **** graficos 
-
+//************ alimentação de informações por mapeamento 
+**confição para todos os graficos : mapeamento de domínio deve descriminar quais regras de negocio foram identificadas com inatividade ou baixa utilização 
+deve ser possível a inteligencia artifical identificar quais consultas devem ser feitas para solicitar os dados que descriminem quais regras de negócio ainda estão ativas
+[grafico 1]
 mapeamentos de dominio e suas classificações devem ser interpretadas pela quantidade de identidades de estrutura envolvidos somados a quantidade 
 de pré-condições identificados no mapeamento de call flow , sua identificação deve ser feita em cima do glossário identificado na tech stack. 
 deve ser possível identificar onde faz parte de uma aplicação e quantas aplicações estão envolvidas nela 
+
+[grafico 2]
+mapeamento de infraestrutura da empresa através dos dados fornecidos com sua infraestrutura devem ser solicitados e deve ser possível formar um grafico onde
+seja identificado cada sala ou parte da ifnraestrutura e quais setores atuam neles junto da regra de negócio, dominio que são utilizados por cada pessoa
+
+
+
+
 
 
 

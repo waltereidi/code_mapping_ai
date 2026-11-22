@@ -1,0 +1,388 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IA1FourLayerArchitectureComprehensionContract",
+  "description": "Contratos formais de dados para os 4 níveis estritamente dependentes (1: Structural Comprehension, 2: Call Flow Comprehension, 3: Tech Stack / Client Heuristics, 4: Graphics & Domain Classification) dimensionados para monolitos de 700+ módulos.",
+  "type": "object",
+  "required": [
+    "execution_hierarchy_version",
+    "layer_1_structural_comprehension",
+    "layer_2_call_flow_comprehension",
+    "layer_3_tech_stack_and_heuristics",
+    "layer_4_graphics_and_metrics"
+  ],
+  "properties": {
+    "execution_hierarchy_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "layer_1_structural_comprehension": {
+      "description": "Nível 1: Fundação de Identidades Únicas. Contém apenas informações únicas deduplicadas. Descarta variáveis de classe e variáveis de método na criação de identidades estruturais.",
+      "type": "object",
+      "required": [
+        "infrastructure_context",
+        "libraries_manifest",
+        "relational_database_identities",
+        "external_db_executable_identities",
+        "persistent_storage_identities",
+        "ram_memory_contract_identities",
+        "csharp_code_signature_identities"
+      ],
+      "properties": {
+        "infrastructure_context": {
+          "type": "object",
+          "required": ["app_id", "application_name_prompted", "root_folder_uid", "total_modules_count"],
+          "properties": {
+            "app_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+            "application_name_prompted": { "type": "string" },
+            "root_folder_uid": { "type": "string", "pattern": "^urn:ia1:root:" },
+            "total_modules_count": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "libraries_manifest": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["uid", "package_or_assembly", "version", "source_type", "referenced_by_module_uids"],
+            "properties": {
+              "uid": { "type": "string", "pattern": "^urn:ia1:code:lib:" },
+              "package_or_assembly": { "type": "string" },
+              "version": { "type": "string" },
+              "source_type": { "enum": ["NUGET", "INTERNAL_PROJECT", "GAC_FRAMEWORK", "LOCAL_DLL"] },
+              "referenced_by_module_uids": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "relational_database_identities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["uid", "db_engine", "catalog", "schema", "table_name", "classification", "relationships"],
+            "properties": {
+              "uid": { "type": "string", "pattern": "^urn:ia1:db:rel:" },
+              "db_engine": { "type": "string" },
+              "catalog": { "type": "string" },
+              "schema": { "type": "string" },
+              "table_name": { "type": "string" },
+              "classification": { "const": "RELATIONAL_DATABASE_STRUCTURE_PERSISTENT_REUSABLE" },
+              "relationships": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["target_table_uid", "foreign_key_column", "primary_key_column", "cardinality"],
+                  "properties": {
+                    "target_table_uid": { "type": "string", "pattern": "^urn:ia1:db:rel:" },
+                    "foreign_key_column": { "type": "string" },
+                    "primary_key_column": { "type": "string" },
+                    "cardinality": { "enum": ["1:1", "1:N", "N:1", "N:N"] }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "external_db_executable_identities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["uid", "object_type", "object_name", "parameter_signature"],
+            "properties": {
+              "uid": { "type": "string", "pattern": "^urn:ia1:db:ext:" },
+              "object_type": { "enum": ["STORED_PROCEDURE", "FUNCTION", "TRIGGER", "PACKAGE"] },
+              "object_name": { "type": "string" },
+              "parameter_signature": { "type": "string" }
+            }
+          }
+        },
+        "persistent_storage_identities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["uid", "medium_category", "path_or_locator"],
+            "properties": {
+              "uid": { "type": "string", "pattern": "^urn:ia1:storage:" },
+              "medium_category": {
+                "enum": [
+                  "LOCAL_COMPUTER_FILESYSTEM",
+                  "NETWORK_SHARE_DISK",
+                  "OPTICAL_CD_DVD",
+                  "COLD_TAPE_ARCHIVE",
+                  "PHYSICAL_IMMUTABLE_STONE",
+                  "BLOB_OBJECT_STORAGE"
+                ]
+              },
+              "path_or_locator": { "type": "string" }
+            }
+          }
+        },
+        "ram_memory_contract_identities": {
+          "description": "Contrato de memória RAM agnóstico de linguagem. Distingue contratos de tipo, cache, sessão, stream e estado estático. Exclui variáveis efêmeras.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["uid", "memory_storage_kind", "language_agnostic_shape", "sig_hash"],
+            "properties": {
+              "uid": { "type": "string", "pattern": "^urn:ia1:mem:" },
+              "memory_storage_kind": {
+                "enum": [
+                  "TYPE_DATA_CONTRACT",
+                  "IN_PROCESS_CACHE",
+                  "DISTRIBUTED_RAM_CACHE",
+                  "USER_REQUEST_SESSION",
+                  "MEMORY_STREAM_BUFFER",
+                  "STATIC_SINGLETON_STATE"
+                ]
+              },
+              "language_agnostic_shape": { "type": "string" },
+              "sig_hash": { "type": "string" }
+            }
+          }
+        },
+        "csharp_code_signature_identities": {
+          "description": "Identidades estruturais principais de código C#: apenas Classes e Métodos (variáveis de classe e variáveis de métodos são descartadas).",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["uid", "entity_kind", "module_uid", "signature", "sig_hash"],
+            "properties": {
+              "uid": { "type": "string", "pattern": "^urn:ia1:code:(type|method):" },
+              "entity_kind": { "enum": ["CLASS_OR_INTERFACE", "METHOD_SIGNATURE"] },
+              "module_uid": { "type": "string", "pattern": "^urn:ia1:code:module:" },
+              "parent_class_uid": { "type": "string" },
+              "signature": { "type": "string" },
+              "sig_hash": { "type": "string" },
+              "body_hash": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "layer_2_call_flow_comprehension": {
+      "description": "Nível 2: Depende estritamente das identidades do Nível 1. Agrega chamadas mantendo a identidade da fonte chamadora, contabiliza transformações de dados e detalha/contabiliza pré-condições.",
+      "type": "object",
+      "required": ["project_caller_aggregates", "end_to_end_flows"],
+      "properties": {
+        "project_caller_aggregates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "aggregate_identity_uid",
+              "module_uid",
+              "ordered_calls",
+              "preconditions",
+              "local_transformation_count",
+              "local_precondition_count"
+            ],
+            "properties": {
+              "aggregate_identity_uid": {
+                "description": "Mesma identidade única do Nível 1 da fonte que originou as chamadas.",
+                "type": "string",
+                "pattern": "^urn:ia1:"
+              },
+              "module_uid": { "type": "string", "pattern": "^urn:ia1:code:module:" },
+              "local_transformation_count": { "type": "integer", "minimum": 0 },
+              "local_precondition_count": { "type": "integer", "minimum": 0 },
+              "preconditions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "precondition_uid",
+                    "order_in_method",
+                    "category",
+                    "condition_expression",
+                    "atomic_clause_count",
+                    "governs_target_uids"
+                  ],
+                  "properties": {
+                    "precondition_uid": { "type": "string", "pattern": "^urn:ia1:precond:" },
+                    "order_in_method": { "type": "integer", "minimum": 1 },
+                    "category": {
+                      "enum": [
+                        "AUTH_PERMISSION",
+                        "INPUT_VALIDATION",
+                        "BUSINESS_INVARIANT",
+                        "STATE_OR_CACHE_CHECK",
+                        "INFRA_DEPENDENCY_GUARD"
+                      ]
+                    },
+                    "condition_expression": { "type": "string" },
+                    "atomic_clause_count": { "type": "integer", "minimum": 1 },
+                    "governs_target_uids": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              },
+              "ordered_calls": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["step_order", "target_identity_uid", "transformation_count", "required_precondition_uids"],
+                  "properties": {
+                    "step_order": { "type": "integer", "minimum": 1 },
+                    "target_identity_uid": { "type": "string", "pattern": "^urn:ia1:" },
+                    "transformation_count": { "type": "integer", "minimum": 0 },
+                    "transformations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": ["type", "from_contract_uid", "to_contract_uid"],
+                        "properties": {
+                          "type": { "enum": ["TX_MAP", "TX_PROJ", "TX_CALC", "TX_SER", "TX_DB_BIND"] },
+                          "from_contract_uid": { "type": "string" },
+                          "to_contract_uid": { "type": "string" }
+                        }
+                      }
+                    },
+                    "required_precondition_uids": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "end_to_end_flows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "flow_uid",
+              "start_ui_or_entrypoint_uid",
+              "end_terminal_sink_uids",
+              "ordered_participating_identity_uids",
+              "cumulative_transformations_count",
+              "cumulative_preconditions_count"
+            ],
+            "properties": {
+              "flow_uid": { "type": "string", "pattern": "^urn:ia1:flow:" },
+              "start_ui_or_entrypoint_uid": { "type": "string", "pattern": "^urn:ia1:" },
+              "end_terminal_sink_uids": { "type": "array", "items": { "type": "string" } },
+              "ordered_participating_identity_uids": { "type": "array", "items": { "type": "string" } },
+              "cumulative_transformations_count": { "type": "integer", "minimum": 0 },
+              "cumulative_preconditions_count": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "layer_3_tech_stack_and_heuristics": {
+      "description": "Nível 3: Compõe os Níveis 1 e 2 em grupos e domínios. Mapeia aplicações, artefatos, arquivos, vínculo com Tech Stack, Glossário de nomes de variáveis para leitura natural e heurísticas de negócio multi-aplicação.",
+      "type": "object",
+      "required": ["applications_and_artifacts", "natural_language_variable_glossary", "domain_heuristic_groups"],
+      "properties": {
+        "applications_and_artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["app_id", "application_name", "primary_artifacts", "source_files", "tech_stack_identities"],
+            "properties": {
+              "app_id": { "type": "string" },
+              "application_name": { "type": "string" },
+              "primary_artifacts": { "type": "array", "items": { "type": "string" } },
+              "source_files": { "type": "array", "items": { "type": "string" } },
+              "tech_stack_identities": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "natural_language_variable_glossary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "glossary_term_id",
+              "canonical_business_word",
+              "natural_language_translation",
+              "anchored_origin_identity_uid",
+              "mapped_variable_names"
+            ],
+            "properties": {
+              "glossary_term_id": { "type": "string" },
+              "canonical_business_word": { "type": "string" },
+              "natural_language_translation": { "type": "string" },
+              "anchored_origin_identity_uid": { "type": "string", "pattern": "^urn:ia1:" },
+              "mapped_variable_names": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "domain_heuristic_groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "domain_uid",
+              "canonical_origin_identity_uid",
+              "common_business_words",
+              "involved_application_ids",
+              "structural_identity_uids",
+              "call_flow_uids"
+            ],
+            "properties": {
+              "domain_uid": { "type": "string", "pattern": "^urn:ia1:domain:" },
+              "canonical_origin_identity_uid": { "type": "string", "pattern": "^urn:ia1:" },
+              "common_business_words": { "type": "array", "items": { "type": "string" } },
+              "involved_application_ids": { "type": "array", "items": { "type": "string" } },
+              "structural_identity_uids": { "type": "array", "items": { "type": "string" } },
+              "call_flow_uids": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "layer_4_graphics_and_metrics": {
+      "description": "Nível 4: Interpreta e classifica domínios pela soma (Identidades Estruturais N1 + Pré-Condições N2) sobre o Glossário do Nível 3, identificando onde faz parte de uma aplicação e quantas aplicações estão envolvidas.",
+      "type": "object",
+      "required": ["domain_graph_nodes"],
+      "properties": {
+        "domain_graph_nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "domain_uid",
+              "glossary_term_ids",
+              "structural_identities_count",
+              "preconditions_count",
+              "total_domain_weight_score",
+              "classification_tier",
+              "involved_applications_count",
+              "application_membership_breakdown"
+            ],
+            "properties": {
+              "domain_uid": { "type": "string", "pattern": "^urn:ia1:domain:" },
+              "glossary_term_ids": { "type": "array", "items": { "type": "string" } },
+              "structural_identities_count": { "type": "integer", "minimum": 1 },
+              "preconditions_count": { "type": "integer", "minimum": 0 },
+              "total_domain_weight_score": {
+                "description": "Soma estrita: structural_identities_count + preconditions_count",
+                "type": "integer",
+                "minimum": 1
+              },
+              "classification_tier": {
+                "enum": [
+                  "DOMINIO_CORE_CRITICO",
+                  "DOMINIO_TRANSACIONAL_DE_NEGOCIO",
+                  "DOMINIO_DE_SUPORTE_INTEGRACAO",
+                  "DOMINIO_UTILITARIO_CRUD"
+                ]
+              },
+              "involved_applications_count": { "type": "integer", "minimum": 1 },
+              "application_membership_breakdown": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["app_id", "modules_in_app", "artifacts_in_app", "structural_identities_in_app", "preconditions_in_app"],
+                  "properties": {
+                    "app_id": { "type": "string" },
+                    "modules_in_app": { "type": "array", "items": { "type": "string" } },
+                    "artifacts_in_app": { "type": "array", "items": { "type": "string" } },
+                    "structural_identities_in_app": { "type": "integer", "minimum": 0 },
+                    "preconditions_in_app": { "type": "integer", "minimum": 0 }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

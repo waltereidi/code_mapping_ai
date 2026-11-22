@@ -1,0 +1,283 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IA1AwsCardDemoGraphsExtensionContract",
+  "description": "Extensão formal do contrato 06_DATA_CONTRACTS_AND_SCHEMAS.json para suportar 100% das dependências estruturais e dos 6 gráficos canônicos do repositório aws-samples/aws-mainframe-modernization-carddemo dentro da hierarquia estrita de 4 camadas (Nível 1 -> Nível 2 -> Nível 3 -> Nível 4).",
+  "type": "object",
+  "required": [
+    "extension_version",
+    "base_contract_ref",
+    "layer_1_mainframe_structural_extensions",
+    "layer_2_mainframe_callflow_extensions",
+    "layer_3_and_4_aws_graphs_payloads"
+  ],
+  "properties": {
+    "extension_version": {
+      "type": "string",
+      "const": "1.1.0-aws-carddemo"
+    },
+    "base_contract_ref": {
+      "type": "string",
+      "const": "../06_DATA_CONTRACTS_AND_SCHEMAS.json"
+    },
+    "layer_1_mainframe_structural_extensions": {
+      "description": "Extensões do Nível 1 (Gaps G1, G3, G5): Datasets VSAM KSDS/AIX/GDG com relacionamentos e Copybook Schema, Inclusão Estática COPY/BMS e Orquestração Batch JCL (Job -> Step -> DD -> DSN).",
+      "type": "object",
+      "required": [
+        "vsam_and_dataset_identities",
+        "copybook_and_bms_contracts",
+        "cobol_program_identities",
+        "batch_jcl_orchestration_identities"
+      ],
+      "properties": {
+        "vsam_and_dataset_identities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "uid",
+              "dataset_dsn",
+              "storage_organization",
+              "record_schema_copybook_uid",
+              "record_length_bytes",
+              "relationships"
+            ],
+            "properties": {
+              "uid": {
+                "type": "string",
+                "pattern": "^urn:ia1:storage:(vsam-ksds|vsam-esds|vsam-rrds|seq-ps|gdg):"
+              },
+              "dataset_dsn": { "type": "string" },
+              "cics_file_id": { "type": "string" },
+              "storage_organization": {
+                "enum": ["VSAM_KSDS", "VSAM_ESDS", "VSAM_RRDS", "SEQUENTIAL_PS", "GDG_GENERATION_GROUP"]
+              },
+              "record_schema_copybook_uid": {
+                "type": "string",
+                "pattern": "^urn:ia1:mem:contract:"
+              },
+              "record_length_bytes": { "type": "integer", "minimum": 1 },
+              "primary_key_field": { "type": "string" },
+              "alternate_indexes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["aix_name", "path_dsn", "key_field", "is_unique"],
+                  "properties": {
+                    "aix_name": { "type": "string" },
+                    "path_dsn": { "type": "string" },
+                    "key_field": { "type": "string" },
+                    "is_unique": { "type": "boolean" }
+                  }
+                }
+              },
+              "relationships": {
+                "description": "Habilita a reprodução 100% fiel do Gráfico 1 (CARDDEMO-DataModel.drawio) sobre arquivos VSAM.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["target_dataset_uid", "source_field", "target_field", "cardinality"],
+                  "properties": {
+                    "target_dataset_uid": { "type": "string", "pattern": "^urn:ia1:storage:" },
+                    "source_field": { "type": "string" },
+                    "target_field": { "type": "string" },
+                    "via_alternate_index": { "type": "string" },
+                    "cardinality": { "enum": ["1:1", "1:N", "N:1", "N:N"] }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "copybook_and_bms_contracts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["uid", "artifact_kind", "source_file", "record_level_01_names", "sig_hash"],
+            "properties": {
+              "uid": { "type": "string", "pattern": "^urn:ia1:mem:(contract|session):" },
+              "artifact_kind": {
+                "enum": [
+                  "DATA_RECORD_COPYBOOK",
+                  "COMMAREA_SESSION_COPYBOOK",
+                  "BMS_SCREEN_MAPSET",
+                  "UTILITY_WORK_COPYBOOK"
+                ]
+              },
+              "source_file": { "type": "string" },
+              "bms_mapset_name": { "type": "string" },
+              "bms_map_names": { "type": "array", "items": { "type": "string" } },
+              "record_level_01_names": { "type": "array", "items": { "type": "string" } },
+              "sig_hash": { "type": "string" }
+            }
+          }
+        },
+        "cobol_program_identities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "uid",
+              "program_id",
+              "execution_environment",
+              "source_file",
+              "included_copybook_uids",
+              "paragraphs_or_sections",
+              "sig_hash",
+              "body_hash"
+            ],
+            "properties": {
+              "uid": { "type": "string", "pattern": "^urn:ia1:code:type:" },
+              "program_id": { "type": "string" },
+              "execution_environment": { "enum": ["CICS_ONLINE", "BATCH_JCL", "SHARED_SUBROUTINE", "CICS_DB2_MQ_IMS"] },
+              "cics_transaction_id": { "type": "string" },
+              "bms_screen_contract_uid": { "type": "string", "pattern": "^urn:ia1:mem:contract:" },
+              "commarea_contract_uid": { "type": "string", "pattern": "^urn:ia1:mem:(contract|session):" },
+              "source_file": { "type": "string" },
+              "included_copybook_uids": {
+                "description": "Dependência estrutural estática (COPY <name>) para o Gráfico 4.",
+                "type": "array",
+                "items": { "type": "string", "pattern": "^urn:ia1:mem:(contract|session):" }
+              },
+              "logical_file_declarations": {
+                "description": "Cláusulas SELECT <logical_fd> ASSIGN TO <dd_name> na FILE-CONTROL.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["logical_fd_name", "assigned_dd_name", "organization", "access_mode"],
+                  "properties": {
+                    "logical_fd_name": { "type": "string" },
+                    "assigned_dd_name": { "type": "string" },
+                    "organization": { "enum": ["INDEXED", "SEQUENTIAL", "RELATIVE"] },
+                    "access_mode": { "enum": ["SEQUENTIAL", "RANDOM", "DYNAMIC"] },
+                    "record_key": { "type": "string" }
+                  }
+                }
+              },
+              "paragraphs_or_sections": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["method_uid", "paragraph_name", "sig_hash", "body_hash"],
+                  "properties": {
+                    "method_uid": { "type": "string", "pattern": "^urn:ia1:code:method:" },
+                    "paragraph_name": { "type": "string" },
+                    "sig_hash": { "type": "string" },
+                    "body_hash": { "type": "string" }
+                  }
+                }
+              },
+              "sig_hash": { "type": "string" },
+              "body_hash": { "type": "string" }
+            }
+          }
+        },
+        "batch_jcl_orchestration_identities": {
+          "description": "Identidades estruturais de Jobs e Steps JCL (Gap G3) para o Gráfico 3.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["job_uid", "job_name", "source_file", "ordered_steps"],
+            "properties": {
+              "job_uid": { "type": "string", "pattern": "^urn:ia1:infra:jcl-job:" },
+              "job_name": { "type": "string" },
+              "source_file": { "type": "string" },
+              "submitted_by_online_program_uid": { "type": "string" },
+              "ordered_steps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["step_uid", "step_order", "step_name", "executed_target_uid", "dd_bindings"],
+                  "properties": {
+                    "step_uid": { "type": "string", "pattern": "^urn:ia1:infra:jcl-step:" },
+                    "step_order": { "type": "integer", "minimum": 1 },
+                    "step_name": { "type": "string" },
+                    "executed_target_uid": {
+                      "description": "UID do programa COBOL (urn:ia1:code:type:...) ou utilitário z/OS (urn:ia1:code:lib:zos-util:SORT|IDCAMS|IEBGENER).",
+                      "type": "string",
+                      "pattern": "^urn:ia1:"
+                    },
+                    "dd_bindings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": ["dd_name", "dataset_storage_uid", "io_direction"],
+                        "properties": {
+                          "dd_name": { "type": "string" },
+                          "dataset_storage_uid": { "type": "string", "pattern": "^urn:ia1:storage:" },
+                          "io_direction": { "enum": ["INPUT", "OUTPUT", "I-O", "SORT_WORK", "SYSIN_PARM"] },
+                          "disp_clause": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "layer_2_mainframe_callflow_extensions": {
+      "description": "Extensões do Nível 2 (Gaps G2 e G4): Semântica de invocação CICS/COBOL e pontes assíncronas Online -> INTRDR -> Batch JCL.",
+      "type": "object",
+      "required": ["invocation_mechanisms_supported", "async_online_to_batch_bridges"],
+      "properties": {
+        "invocation_mechanisms_supported": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "COBOL_PERFORM_PARAGRAPH",
+              "COBOL_STATIC_OR_DYNAMIC_CALL",
+              "CICS_XCTL_TRANSFER",
+              "CICS_LINK_SUBPROGRAM",
+              "CICS_RETURN_TRANSID_PSEUDOCONV",
+              "CICS_SEND_MAP",
+              "CICS_RECEIVE_MAP",
+              "CICS_FILE_CONTROL_IO",
+              "CICS_WRITEQ_TD_INTRDR",
+              "JCL_EXEC_PGM_STEP"
+            ]
+          }
+        },
+        "async_online_to_batch_bridges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "bridge_uid",
+              "online_caller_program_uid",
+              "queue_or_channel_uid",
+              "triggered_batch_job_uid"
+            ],
+            "properties": {
+              "bridge_uid": { "type": "string", "pattern": "^urn:ia1:flow:bridge:" },
+              "online_caller_program_uid": { "type": "string", "pattern": "^urn:ia1:code:" },
+              "queue_or_channel_uid": { "type": "string", "pattern": "^urn:ia1:mem:stream-buffer:" },
+              "triggered_batch_job_uid": { "type": "string", "pattern": "^urn:ia1:infra:jcl-job:" }
+            }
+          }
+        }
+      }
+    },
+    "layer_3_and_4_aws_graphs_payloads": {
+      "description": "Contratos de saída do Nível 4 para renderização determinística dos 6 gráficos canônicos do AWS CardDemo.",
+      "type": "object",
+      "required": [
+        "graph_1_data_model_er",
+        "graph_2_online_cics_navigation",
+        "graph_3_batch_jcl_lineage",
+        "graph_4_static_dependency_matrix",
+        "graph_5_domain_decomposition_overlap",
+        "graph_6_enriched_capability_map"
+      ],
+      "properties": {
+        "graph_1_data_model_er": { "type": "object" },
+        "graph_2_online_cics_navigation": { "type": "object" },
+        "graph_3_batch_jcl_lineage": { "type": "object" },
+        "graph_4_static_dependency_matrix": { "type": "object" },
+        "graph_5_domain_decomposition_overlap": { "type": "object" },
+        "graph_6_enriched_capability_map": { "type": "object" }
+      }
+    }
+  }
+}
