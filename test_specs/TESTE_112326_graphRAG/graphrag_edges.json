@@ -1,0 +1,5251 @@
+{
+  "total_edges": 528,
+  "edges": [
+    {
+      "id": "edge_stage_1_2",
+      "source": "urn:stage:1:indicacao-regulacao-cross",
+      "target": "urn:stage:2:agendamento-escala-mapa",
+      "type": "PRECEDES",
+      "weight": 5.0,
+      "properties": {
+        "description": "Transição clínica mandatória da Etapa 1: Indicação Cirúrgica, Lista de Espera e Regulação CROSS para Etapa 2: Agendamento da Data Cirúrgica e Montagem do Mapa Operatório"
+      }
+    },
+    {
+      "id": "edge_stage_2_3",
+      "source": "urn:stage:2:agendamento-escala-mapa",
+      "target": "urn:stage:3:suprimentos-cme-opme",
+      "type": "PRECEDES",
+      "weight": 5.0,
+      "properties": {
+        "description": "Transição clínica mandatória da Etapa 2: Agendamento da Data Cirúrgica e Montagem do Mapa Operatório para Etapa 3: Preparação CME, Caixas de Instrumental e Kits de OPME"
+      }
+    },
+    {
+      "id": "edge_stage_3_4",
+      "source": "urn:stage:3:suprimentos-cme-opme",
+      "target": "urn:stage:4:recepcao-preparo-paciente",
+      "type": "PRECEDES",
+      "weight": 5.0,
+      "properties": {
+        "description": "Transição clínica mandatória da Etapa 3: Preparação CME, Caixas de Instrumental e Kits de OPME para Etapa 4: Recepção, Acolhimento e Cuidados Pré-Operatórios Imediatos"
+      }
+    },
+    {
+      "id": "edge_stage_4_5",
+      "source": "urn:stage:4:recepcao-preparo-paciente",
+      "target": "urn:stage:5:bloco-cirurgia-segura-ato",
+      "type": "PRECEDES",
+      "weight": 5.0,
+      "properties": {
+        "description": "Transição clínica mandatória da Etapa 4: Recepção, Acolhimento e Cuidados Pré-Operatórios Imediatos para Etapa 5: Bloco Operatório, Protocolo de Cirurgia Segura OMS e Ato Cirúrgico"
+      }
+    },
+    {
+      "id": "edge_stage_5_6",
+      "source": "urn:stage:5:bloco-cirurgia-segura-ato",
+      "target": "urn:stage:6:srpa-recuperacao-pos-anestesica",
+      "type": "PRECEDES",
+      "weight": 5.0,
+      "properties": {
+        "description": "Transição clínica mandatória da Etapa 5: Bloco Operatório, Protocolo de Cirurgia Segura OMS e Ato Cirúrgico para Etapa 6: Sala de Recuperação Pós-Anestésica (SRPA) e Avaliação de Alta"
+      }
+    },
+    {
+      "id": "edge_stage_6_7",
+      "source": "urn:stage:6:srpa-recuperacao-pos-anestesica",
+      "target": "urn:stage:7:alta-laudo-faturamento-apac",
+      "type": "PRECEDES",
+      "weight": 5.0,
+      "properties": {
+        "description": "Transição clínica mandatória da Etapa 6: Sala de Recuperação Pós-Anestésica (SRPA) e Avaliação de Alta para Etapa 7: Alta / Destino, Laudo Operatório, PEP e Faturamento APAC / SUS"
+      }
+    },
+    {
+      "id": "edge_nav_1",
+      "source": "urn:screen:centro-cirurgico:CCIO0001",
+      "target": "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0001 abre a tela CCIO0001Agendamento"
+      }
+    },
+    {
+      "id": "edge_nav_2",
+      "source": "urn:screen:centro-cirurgico:CCIO0001",
+      "target": "urn:screen:centro-cirurgico:CCIO0001APAC",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0001 abre a tela CCIO0001APAC"
+      }
+    },
+    {
+      "id": "edge_nav_3",
+      "source": "urn:screen:centro-cirurgico:CCIO0001",
+      "target": "urn:screen:centro-cirurgico:CCIO0001Confirmacao",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0001 abre a tela CCIO0001Confirmacao"
+      }
+    },
+    {
+      "id": "edge_nav_4",
+      "source": "urn:screen:centro-cirurgico:CCIO0001",
+      "target": "urn:screen:centro-cirurgico:CCIO0001EditarPrestador",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0001 abre a tela CCIO0001EditarPrestador"
+      }
+    },
+    {
+      "id": "edge_nav_5",
+      "source": "urn:screen:centro-cirurgico:CCIO0001APAC",
+      "target": "urn:screen:centro-cirurgico:CCIOFAPAC",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0001APAC abre a tela CCIOFAPAC"
+      }
+    },
+    {
+      "id": "edge_nav_6",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+      "target": "urn:screen:centro-cirurgico:CCIO0001DemandaCirurgica",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0001Agendamento abre a tela CCIO0001DemandaCirurgica"
+      }
+    },
+    {
+      "id": "edge_nav_7",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+      "target": "urn:screen:centro-cirurgico:CCIO0001MapaCirurgia",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0001Agendamento abre a tela CCIO0001MapaCirurgia"
+      }
+    },
+    {
+      "id": "edge_nav_8",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+      "target": "urn:screen:centro-cirurgico:CCIO0001MaterialManutencao",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0001Agendamento abre a tela CCIO0001MaterialManutencao"
+      }
+    },
+    {
+      "id": "edge_nav_9",
+      "source": "urn:screen:centro-cirurgico:CCIO0001IdentificarEquipe",
+      "target": "urn:screen:centro-cirurgico:CCIO9000IdentificacaoEquipeCirurgica",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0001IdentificarEquipe abre a tela CCIO9000IdentificacaoEquipeCirurgica"
+      }
+    },
+    {
+      "id": "edge_nav_10",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Material",
+      "target": "urn:screen:centro-cirurgico:CCIO0001MaterialManutencao",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0001Material abre a tela CCIO0001MaterialManutencao"
+      }
+    },
+    {
+      "id": "edge_nav_11",
+      "source": "urn:screen:centro-cirurgico:CCIO0002",
+      "target": "urn:screen:centro-cirurgico:CCIO0002CentroCusto",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0002 abre a tela CCIO0002CentroCusto"
+      }
+    },
+    {
+      "id": "edge_nav_12",
+      "source": "urn:screen:centro-cirurgico:CCIO0002",
+      "target": "urn:screen:centro-cirurgico:CCIO0002InformacoesProcedimento",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0002 abre a tela CCIO0002InformacoesProcedimento"
+      }
+    },
+    {
+      "id": "edge_nav_13",
+      "source": "urn:screen:centro-cirurgico:CCIO0002",
+      "target": "urn:screen:centro-cirurgico:CCIO0002Ortese",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0002 abre a tela CCIO0002Ortese"
+      }
+    },
+    {
+      "id": "edge_nav_14",
+      "source": "urn:screen:centro-cirurgico:CCIO0002",
+      "target": "urn:screen:centro-cirurgico:CCIO0002Participante",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0002 abre a tela CCIO0002Participante"
+      }
+    },
+    {
+      "id": "edge_nav_15",
+      "source": "urn:screen:centro-cirurgico:CCIO0003",
+      "target": "urn:screen:centro-cirurgico:CCIO0003MotivoObito",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0003 abre a tela CCIO0003MotivoObito"
+      }
+    },
+    {
+      "id": "edge_nav_16",
+      "source": "urn:screen:centro-cirurgico:CCIO0003",
+      "target": "urn:screen:centro-cirurgico:CCIO0003MotivoSuspensao",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0003 abre a tela CCIO0003MotivoSuspensao"
+      }
+    },
+    {
+      "id": "edge_nav_17",
+      "source": "urn:screen:centro-cirurgico:CCIO0003",
+      "target": "urn:screen:centro-cirurgico:CCIO0003TipoObstetrica",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0003 abre a tela CCIO0003TipoObstetrica"
+      }
+    },
+    {
+      "id": "edge_nav_18",
+      "source": "urn:screen:centro-cirurgico:CCIO0004",
+      "target": "urn:screen:centro-cirurgico:CCIO0004DataChegada",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0004 abre a tela CCIO0004DataChegada"
+      }
+    },
+    {
+      "id": "edge_nav_19",
+      "source": "urn:screen:centro-cirurgico:CCIO0004",
+      "target": "urn:screen:centro-cirurgico:CCIO0004DataFim",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0004 abre a tela CCIO0004DataFim"
+      }
+    },
+    {
+      "id": "edge_nav_20",
+      "source": "urn:screen:centro-cirurgico:CCIO0004",
+      "target": "urn:screen:centro-cirurgico:CCIO0004DataInicio",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0004 abre a tela CCIO0004DataInicio"
+      }
+    },
+    {
+      "id": "edge_nav_21",
+      "source": "urn:screen:centro-cirurgico:CCIO0004",
+      "target": "urn:screen:centro-cirurgico:CCIO0004DataSaida",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0004 abre a tela CCIO0004DataSaida"
+      }
+    },
+    {
+      "id": "edge_nav_22",
+      "source": "urn:screen:centro-cirurgico:CCIO0005",
+      "target": "urn:screen:centro-cirurgico:CCIO0006",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0005 abre a tela CCIO0006"
+      }
+    },
+    {
+      "id": "edge_nav_23",
+      "source": "urn:screen:centro-cirurgico:CCIO0006",
+      "target": "urn:screen:centro-cirurgico:CCIO0006material",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0006 abre a tela CCIO0006material"
+      }
+    },
+    {
+      "id": "edge_nav_24",
+      "source": "urn:screen:centro-cirurgico:CCIO0010",
+      "target": "urn:screen:centro-cirurgico:UCCCIO0004Adicionar",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO0010 abre a tela UCCCIO0004Adicionar"
+      }
+    },
+    {
+      "id": "edge_nav_25",
+      "source": "urn:screen:centro-cirurgico:CCIO1000",
+      "target": "urn:screen:centro-cirurgico:CCIO9000Profissional",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "CCIO1000 abre a tela CCIO9000Profissional"
+      }
+    },
+    {
+      "id": "edge_nav_26",
+      "source": "urn:screen:centro-cirurgico:DCMO0001",
+      "target": "urn:screen:centro-cirurgico:DCMO0001mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DCMO0001 abre a tela DCMO0001mn"
+      }
+    },
+    {
+      "id": "edge_nav_27",
+      "source": "urn:screen:centro-cirurgico:DECG0001",
+      "target": "urn:screen:centro-cirurgico:DECG0001mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DECG0001 abre a tela DECG0001mn"
+      }
+    },
+    {
+      "id": "edge_nav_28",
+      "source": "urn:screen:centro-cirurgico:DECG0002",
+      "target": "urn:screen:centro-cirurgico:DECG0002mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DECG0002 abre a tela DECG0002mn"
+      }
+    },
+    {
+      "id": "edge_nav_29",
+      "source": "urn:screen:centro-cirurgico:DECG0003",
+      "target": "urn:screen:centro-cirurgico:DECG0003mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DECG0003 abre a tela DECG0003mn"
+      }
+    },
+    {
+      "id": "edge_nav_30",
+      "source": "urn:screen:centro-cirurgico:DECI0001",
+      "target": "urn:screen:centro-cirurgico:DECI0001mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DECI0001 abre a tela DECI0001mn"
+      }
+    },
+    {
+      "id": "edge_nav_31",
+      "source": "urn:screen:centro-cirurgico:DECI0001CaixaCirurgica",
+      "target": "urn:screen:centro-cirurgico:DECI0001CaixaCirurgicamn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DECI0001CaixaCirurgica abre a tela DECI0001CaixaCirurgicamn"
+      }
+    },
+    {
+      "id": "edge_nav_32",
+      "source": "urn:screen:centro-cirurgico:DECI0001Insumo",
+      "target": "urn:screen:centro-cirurgico:DECI0001Insumomn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DECI0001Insumo abre a tela DECI0001Insumomn"
+      }
+    },
+    {
+      "id": "edge_nav_33",
+      "source": "urn:screen:centro-cirurgico:DECI0001OrteseProtese",
+      "target": "urn:screen:centro-cirurgico:DECI0001OrteseProtesemn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DECI0001OrteseProtese abre a tela DECI0001OrteseProtesemn"
+      }
+    },
+    {
+      "id": "edge_nav_34",
+      "source": "urn:screen:centro-cirurgico:DECI0001Recurso",
+      "target": "urn:screen:centro-cirurgico:DECI0001Recursomn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DECI0001Recurso abre a tela DECI0001Recursomn"
+      }
+    },
+    {
+      "id": "edge_nav_35",
+      "source": "urn:screen:centro-cirurgico:DECI0003",
+      "target": "urn:screen:centro-cirurgico:DECI0003MotivoSaida",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DECI0003 abre a tela DECI0003MotivoSaida"
+      }
+    },
+    {
+      "id": "edge_nav_36",
+      "source": "urn:screen:centro-cirurgico:DECI0005",
+      "target": "urn:screen:centro-cirurgico:DECI0005mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "DECI0005 abre a tela DECI0005mn"
+      }
+    },
+    {
+      "id": "edge_nav_37",
+      "source": "urn:screen:centro-cirurgico:KCCEquipamentoForms",
+      "target": "urn:screen:centro-cirurgico:KCCEquipamentoFormsmn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCEquipamentoForms abre a tela KCCEquipamentoFormsmn"
+      }
+    },
+    {
+      "id": "edge_nav_38",
+      "source": "urn:screen:centro-cirurgico:KCCEquipamentoForms",
+      "target": "urn:screen:centro-cirurgico:KCCI0001",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCEquipamentoForms abre a tela KCCI0001"
+      }
+    },
+    {
+      "id": "edge_nav_39",
+      "source": "urn:screen:centro-cirurgico:KCCI0001",
+      "target": "urn:screen:centro-cirurgico:KCCI0001mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0001 abre a tela KCCI0001mn"
+      }
+    },
+    {
+      "id": "edge_nav_40",
+      "source": "urn:screen:centro-cirurgico:KCCI0002",
+      "target": "urn:screen:centro-cirurgico:KCCI0002mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0002 abre a tela KCCI0002mn"
+      }
+    },
+    {
+      "id": "edge_nav_41",
+      "source": "urn:screen:centro-cirurgico:KCCI0003",
+      "target": "urn:screen:centro-cirurgico:KCCI0002mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0003 abre a tela KCCI0002mn"
+      }
+    },
+    {
+      "id": "edge_nav_42",
+      "source": "urn:screen:centro-cirurgico:KCCI0003",
+      "target": "urn:screen:centro-cirurgico:KCCI0003mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0003 abre a tela KCCI0003mn"
+      }
+    },
+    {
+      "id": "edge_nav_43",
+      "source": "urn:screen:centro-cirurgico:KCCI0004",
+      "target": "urn:screen:centro-cirurgico:KCCI0004mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0004 abre a tela KCCI0004mn"
+      }
+    },
+    {
+      "id": "edge_nav_44",
+      "source": "urn:screen:centro-cirurgico:KCCI0004",
+      "target": "urn:screen:centro-cirurgico:KCCI0005mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0004 abre a tela KCCI0005mn"
+      }
+    },
+    {
+      "id": "edge_nav_45",
+      "source": "urn:screen:centro-cirurgico:KCCI0005",
+      "target": "urn:screen:centro-cirurgico:KCCI0005mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0005 abre a tela KCCI0005mn"
+      }
+    },
+    {
+      "id": "edge_nav_46",
+      "source": "urn:screen:centro-cirurgico:KCCI0006",
+      "target": "urn:screen:centro-cirurgico:KCCI0001",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0006 abre a tela KCCI0001"
+      }
+    },
+    {
+      "id": "edge_nav_47",
+      "source": "urn:screen:centro-cirurgico:KCCI0006",
+      "target": "urn:screen:centro-cirurgico:KCCI0001mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0006 abre a tela KCCI0001mn"
+      }
+    },
+    {
+      "id": "edge_nav_48",
+      "source": "urn:screen:centro-cirurgico:KCCI0006",
+      "target": "urn:screen:centro-cirurgico:KCCI0006mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0006 abre a tela KCCI0006mn"
+      }
+    },
+    {
+      "id": "edge_nav_49",
+      "source": "urn:screen:centro-cirurgico:KCCI0007",
+      "target": "urn:screen:centro-cirurgico:KCCI0005mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0007 abre a tela KCCI0005mn"
+      }
+    },
+    {
+      "id": "edge_nav_50",
+      "source": "urn:screen:centro-cirurgico:KCCI0007",
+      "target": "urn:screen:centro-cirurgico:KCCI0007mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0007 abre a tela KCCI0007mn"
+      }
+    },
+    {
+      "id": "edge_nav_51",
+      "source": "urn:screen:centro-cirurgico:KCCI0008",
+      "target": "urn:screen:centro-cirurgico:KCCI0008mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0008 abre a tela KCCI0008mn"
+      }
+    },
+    {
+      "id": "edge_nav_52",
+      "source": "urn:screen:centro-cirurgico:KCCI0009",
+      "target": "urn:screen:centro-cirurgico:KCCI0009mn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCI0009 abre a tela KCCI0009mn"
+      }
+    },
+    {
+      "id": "edge_nav_53",
+      "source": "urn:screen:centro-cirurgico:KCCInstrumentalForms",
+      "target": "urn:screen:centro-cirurgico:KCCInstrumentalFormsmn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCInstrumentalForms abre a tela KCCInstrumentalFormsmn"
+      }
+    },
+    {
+      "id": "edge_nav_54",
+      "source": "urn:screen:centro-cirurgico:KCCKitProdutoForms",
+      "target": "urn:screen:centro-cirurgico:KCCKitProdutoFormsmn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCKitProdutoForms abre a tela KCCKitProdutoFormsmn"
+      }
+    },
+    {
+      "id": "edge_nav_55",
+      "source": "urn:screen:centro-cirurgico:KCCMovimentacaoForms",
+      "target": "urn:screen:centro-cirurgico:KCCMovimentacaoFormsmn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCMovimentacaoForms abre a tela KCCMovimentacaoFormsmn"
+      }
+    },
+    {
+      "id": "edge_nav_56",
+      "source": "urn:screen:centro-cirurgico:KCCTipoMovimentacaoForms",
+      "target": "urn:screen:centro-cirurgico:KCCTipoMovimentacaoFormsmn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "KCCTipoMovimentacaoForms abre a tela KCCTipoMovimentacaoFormsmn"
+      }
+    },
+    {
+      "id": "edge_nav_57",
+      "source": "urn:screen:centro-cirurgico:SMOV5020Anestesico",
+      "target": "urn:screen:centro-cirurgico:SMOV5020Anestesicomn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "SMOV5020Anestesico abre a tela SMOV5020Anestesicomn"
+      }
+    },
+    {
+      "id": "edge_nav_58",
+      "source": "urn:screen:centro-cirurgico:SMOV5020Cirurgia",
+      "target": "urn:screen:centro-cirurgico:SMOV5020Cirurgiamn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "SMOV5020Cirurgia abre a tela SMOV5020Cirurgiamn"
+      }
+    },
+    {
+      "id": "edge_nav_59",
+      "source": "urn:screen:centro-cirurgico:UCCirurgia",
+      "target": "urn:screen:centro-cirurgico:SMOV5020Cirurgiamn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "UCCirurgia abre a tela SMOV5020Cirurgiamn"
+      }
+    },
+    {
+      "id": "edge_nav_60",
+      "source": "urn:screen:centro-cirurgico:UCCirurgia",
+      "target": "urn:screen:centro-cirurgico:SMOV5053CirurgiaAPAC",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "UCCirurgia abre a tela SMOV5053CirurgiaAPAC"
+      }
+    },
+    {
+      "id": "edge_nav_61",
+      "source": "urn:screen:centro-cirurgico:UCCirurgiaAnestesico",
+      "target": "urn:screen:centro-cirurgico:SMOV5020Anestesicomn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "UCCirurgiaAnestesico abre a tela SMOV5020Anestesicomn"
+      }
+    },
+    {
+      "id": "edge_nav_62",
+      "source": "urn:screen:centro-cirurgico:UCCirurgiaParticipante",
+      "target": "urn:screen:centro-cirurgico:SMOV5020Participantemn",
+      "type": "NAVIGATES_TO",
+      "weight": 2.0,
+      "properties": {
+        "description": "UCCirurgiaParticipante abre a tela SMOV5020Participantemn"
+      }
+    },
+    {
+      "id": "edge_db_63",
+      "source": "urn:screen:totemlucy:Agradecimento",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_64",
+      "source": "urn:screen:totemlucy:Agradecimento",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_65",
+      "source": "urn:screen:centro-cirurgico:CCIO0001",
+      "target": "urn:table:infra_estrutura:leito",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO",
+          "COD_SALA_CIRURGICA"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_66",
+      "source": "urn:screen:centro-cirurgico:CCIO0001",
+      "target": "urn:table:pessoa:area_gerencial",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_67",
+      "source": "urn:screen:centro-cirurgico:CCIO0001",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_68",
+      "source": "urn:screen:centro-cirurgico:CCIO0001",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_69",
+      "source": "urn:screen:centro-cirurgico:CCIO0001",
+      "target": "urn:table:pessoa:especificacao_equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_70",
+      "source": "urn:screen:centro-cirurgico:CCIO0001APAC",
+      "target": "urn:table:pessoa:ano_letivo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_71",
+      "source": "urn:screen:centro-cirurgico:CCIO0001APAC",
+      "target": "urn:table:pessoa:estudante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_72",
+      "source": "urn:screen:centro-cirurgico:CCIO0001APAC",
+      "target": "urn:table:pessoa:pes_item_documento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_73",
+      "source": "urn:screen:centro-cirurgico:CCIO0001APAC",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_74",
+      "source": "urn:screen:centro-cirurgico:CCIO0001APAC",
+      "target": "urn:table:pessoa:profissional",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_75",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+      "target": "urn:table:infra_estrutura:infra_estrutura",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_76",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+      "target": "urn:table:infra_estrutura:leito",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_77",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+      "target": "urn:table:infra_estrutura:tipo_infra_estrutura",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_78",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+      "target": "urn:table:pessoa:ano_letivo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_79",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+      "target": "urn:table:pessoa:area_gerencial",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_80",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Confirmacao",
+      "target": "urn:table:pessoa:paciente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_81",
+      "source": "urn:screen:centro-cirurgico:CCIO0001DemandaCirurgica",
+      "target": "urn:table:infra_estrutura:infra_estrutura",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_82",
+      "source": "urn:screen:centro-cirurgico:CCIO0001DemandaCirurgica",
+      "target": "urn:table:pessoa:ano_letivo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_83",
+      "source": "urn:screen:centro-cirurgico:CCIO0001DemandaCirurgica",
+      "target": "urn:table:pessoa:area_gerencial",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_84",
+      "source": "urn:screen:centro-cirurgico:CCIO0001DemandaCirurgica",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_85",
+      "source": "urn:screen:centro-cirurgico:CCIO0001DemandaCirurgica",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_86",
+      "source": "urn:screen:centro-cirurgico:CCIO0001EditarPrestador",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_87",
+      "source": "urn:screen:centro-cirurgico:CCIO0001EditarPrestador",
+      "target": "urn:table:sihosp:movimento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_88",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Exclusao",
+      "target": "urn:table:pessoa:ano_letivo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_89",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Exclusao",
+      "target": "urn:table:pessoa:estudante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_90",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Exclusao",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_91",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Exclusao",
+      "target": "urn:table:pessoa:pes_item_documento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_92",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Exclusao",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_93",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0001IdentificarEquipe",
+      "target": "urn:table:pessoa:equipe",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_94",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0001IdentificarEquipe",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_95",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0001IdentificarEquipe",
+      "target": "urn:table:sihosp:laranja",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_96",
+      "source": "urn:screen:centro-cirurgico:CCIO0001MapaCirurgia",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_97",
+      "source": "urn:screen:centro-cirurgico:CCIO0001MapaCirurgia",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_98",
+      "source": "urn:screen:centro-cirurgico:CCIO0001MapaCirurgia",
+      "target": "urn:table:sihosp:cirurgia_procedi_realizado",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_99",
+      "source": "urn:screen:centro-cirurgico:CCIO0001MapaCirurgia",
+      "target": "urn:table:sihosp:internacao",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_100",
+      "source": "urn:screen:centro-cirurgico:CCIO0001MapaCirurgia",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_101",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Material",
+      "target": "urn:table:pessoa:paciente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_102",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Material",
+      "target": "urn:table:sihosp:mapa_cirurgico_material",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_103",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Material",
+      "target": "urn:table:sihosp:produto",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_104",
+      "source": "urn:screen:centro-cirurgico:CCIO0001MaterialManutencao",
+      "target": "urn:table:sihosp:produto",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_105",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Suspensao",
+      "target": "urn:table:pessoa:ano_letivo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_106",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Suspensao",
+      "target": "urn:table:pessoa:estudante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_107",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Suspensao",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_108",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Suspensao",
+      "target": "urn:table:pessoa:pes_item_documento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_109",
+      "source": "urn:screen:centro-cirurgico:CCIO0001Suspensao",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_110",
+      "source": "urn:screen:centro-cirurgico:CCIO0002",
+      "target": "urn:table:ca:ca_cliente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "SEQ_PACIENTE"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_111",
+      "source": "urn:screen:centro-cirurgico:CCIO0002",
+      "target": "urn:table:ca:ca_cliente_objeto",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_112",
+      "source": "urn:screen:centro-cirurgico:CCIO0002",
+      "target": "urn:table:infra_estrutura:infra_estrutura",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_113",
+      "source": "urn:screen:centro-cirurgico:CCIO0002",
+      "target": "urn:table:infra_estrutura:leito",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_114",
+      "source": "urn:screen:centro-cirurgico:CCIO0002",
+      "target": "urn:table:infra_estrutura:tipo_infra_estrutura",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_115",
+      "source": "urn:screen:centro-cirurgico:CCIO0002CentroCusto",
+      "target": "urn:table:pessoa:area_gerencial",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_116",
+      "source": "urn:screen:centro-cirurgico:CCIO0002CentroCusto",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_117",
+      "source": "urn:screen:centro-cirurgico:CCIO0002CentroCusto",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_118",
+      "source": "urn:screen:centro-cirurgico:CCIO0002CentroCusto",
+      "target": "urn:table:pessoa:especificacao_equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_119",
+      "source": "urn:screen:centro-cirurgico:CCIO0002CentroCusto",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_120",
+      "source": "urn:screen:centro-cirurgico:CCIO0002InformacoesProcedimento",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_121",
+      "source": "urn:screen:centro-cirurgico:CCIO0002InformacoesProcedimento",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_122",
+      "source": "urn:screen:centro-cirurgico:CCIO0002InformacoesProcedimento",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_123",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Ortese",
+      "target": "urn:table:pessoa:ano_letivo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_124",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Ortese",
+      "target": "urn:table:pessoa:estudante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_125",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Ortese",
+      "target": "urn:table:pessoa:pes_item_documento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_126",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Ortese",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_127",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Ortese",
+      "target": "urn:table:pessoa:profissional",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_128",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Participante",
+      "target": "urn:table:pessoa:ano_letivo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_129",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Participante",
+      "target": "urn:table:pessoa:estudante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_130",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Participante",
+      "target": "urn:table:pessoa:participante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_131",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Participante",
+      "target": "urn:table:pessoa:pes_item_documento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_132",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Participante",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_133",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Procedimento",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_134",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Procedimento",
+      "target": "urn:table:sihosp:procedimento_cruzamento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_135",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Procedimento",
+      "target": "urn:table:sihosp:procedimento_geral",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_136",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Procedimento",
+      "target": "urn:table:sihosp:procedimento_interno",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_137",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Profilaxia",
+      "target": "urn:table:sihosp:produto",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_138",
+      "source": "urn:screen:centro-cirurgico:CCIO0002RecemNascido",
+      "target": "urn:table:pessoa:area_gerencial",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_139",
+      "source": "urn:screen:centro-cirurgico:CCIO0002RecemNascido",
+      "target": "urn:table:pessoa:banco",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_140",
+      "source": "urn:screen:centro-cirurgico:CCIO0002RecemNascido",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_141",
+      "source": "urn:screen:centro-cirurgico:CCIO0002RecemNascido",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_142",
+      "source": "urn:screen:centro-cirurgico:CCIO0002RecemNascido",
+      "target": "urn:table:pessoa:especificacao_equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_143",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Suspensao",
+      "target": "urn:table:pessoa:ano_letivo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_144",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Suspensao",
+      "target": "urn:table:pessoa:estudante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_145",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Suspensao",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_146",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Suspensao",
+      "target": "urn:table:pessoa:pes_item_documento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_147",
+      "source": "urn:screen:centro-cirurgico:CCIO0002Suspensao",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_148",
+      "source": "urn:screen:centro-cirurgico:CCIO0002TipoInternacaoObstetrica",
+      "target": "urn:table:sihosp:tipo_internacao_obstetrica",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_149",
+      "source": "urn:screen:centro-cirurgico:CCIO0003",
+      "target": "urn:table:sihosp:motivo_obito_obstetricia",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_150",
+      "source": "urn:screen:centro-cirurgico:CCIO0003",
+      "target": "urn:table:sihosp:motivo_suspensao_cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_151",
+      "source": "urn:screen:centro-cirurgico:CCIO0003",
+      "target": "urn:table:sihosp:tipo_internacao_obstetrica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_152",
+      "source": "urn:screen:centro-cirurgico:CCIO0003MotivoObito",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_153",
+      "source": "urn:screen:centro-cirurgico:CCIO0003MotivoObito",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_154",
+      "source": "urn:screen:centro-cirurgico:CCIO0003MotivoObito",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_155",
+      "source": "urn:screen:centro-cirurgico:CCIO0003MotivoSuspensao",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_156",
+      "source": "urn:screen:centro-cirurgico:CCIO0003TipoObstetrica",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_157",
+      "source": "urn:screen:centro-cirurgico:CCIO0003TipoObstetrica",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_158",
+      "source": "urn:screen:centro-cirurgico:CCIO0003TipoObstetrica",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_159",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004",
+      "target": "urn:table:infra_estrutura:infra_estrutura",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_SALA_CIRURGICA"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_160",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004",
+      "target": "urn:table:pessoa:area_gerencial",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_161",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_162",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_163",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004",
+      "target": "urn:table:pessoa:especificacao_equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_164",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataChegada",
+      "target": "urn:table:pessoa:paciente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_165",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataChegada",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_166",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataChegada",
+      "target": "urn:table:sihosp:apac",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_167",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataChegada",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_168",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataChegada",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_169",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataFim",
+      "target": "urn:table:pessoa:paciente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_170",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataFim",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_171",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataFim",
+      "target": "urn:table:sihosp:apac",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_172",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataFim",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_173",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataFim",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_174",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataInicio",
+      "target": "urn:table:infra_estrutura:infra_estrutura",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_175",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataInicio",
+      "target": "urn:table:infra_estrutura:tipo_infra_estrutura",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_176",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataInicio",
+      "target": "urn:table:pessoa:ano_letivo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_177",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataInicio",
+      "target": "urn:table:pessoa:estudante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_178",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataInicio",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_179",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataSaida",
+      "target": "urn:table:pessoa:paciente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_180",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataSaida",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_181",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataSaida",
+      "target": "urn:table:sihosp:apac",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_182",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataSaida",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_183",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004DataSaida",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_184",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004Sala",
+      "target": "urn:table:infra_estrutura:infra_estrutura",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_185",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004Sala",
+      "target": "urn:table:infra_estrutura:tipo_infra_estrutura",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_186",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004Sala",
+      "target": "urn:table:sihosp:apac",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_187",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004Sala",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_188",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:CCIO0004Sala",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_189",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0005",
+      "target": "urn:table:pessoa:paciente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_190",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0005",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_191",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0005",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_192",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0005",
+      "target": "urn:table:sihosp:pedido_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_193",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0006",
+      "target": "urn:table:infra_estrutura:leito",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_194",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0006",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_195",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0006",
+      "target": "urn:table:pessoa:unidade_tecnica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_196",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0006material",
+      "target": "urn:table:sys:dual",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_197",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0010",
+      "target": "urn:table:pessoa:cargo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_198",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0010",
+      "target": "urn:table:pessoa:participante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_199",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0010",
+      "target": "urn:table:sihosp:agendamento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_200",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO0010",
+      "target": "urn:table:sihosp:resultado",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_201",
+      "source": "urn:screen:centro-cirurgico:CCIO1000",
+      "target": "urn:table:pessoa:ano_letivo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_202",
+      "source": "urn:screen:centro-cirurgico:CCIO1000",
+      "target": "urn:table:pessoa:area_gerencial",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_203",
+      "source": "urn:screen:centro-cirurgico:CCIO1000",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_204",
+      "source": "urn:screen:centro-cirurgico:CCIO1000",
+      "target": "urn:table:pessoa:convenio",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_205",
+      "source": "urn:screen:centro-cirurgico:CCIO1000",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_206",
+      "source": "urn:screen:centro-cirurgico:CCIO9000",
+      "target": "urn:table:pessoa:equipe",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_207",
+      "source": "urn:screen:centro-cirurgico:CCIO9000",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_208",
+      "source": "urn:screen:centro-cirurgico:CCIO9000",
+      "target": "urn:table:pessoa:recem_nascido",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_209",
+      "source": "urn:screen:centro-cirurgico:CCIO9000",
+      "target": "urn:table:sihosp:acompanhante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_210",
+      "source": "urn:screen:centro-cirurgico:CCIO9000",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_211",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO9000IdentificacaoEquipeCirurgica",
+      "target": "urn:table:pessoa:endereco",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_212",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO9000IdentificacaoEquipeCirurgica",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_213",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO9000MapaCirurgico",
+      "target": "urn:table:infra_estrutura:leito",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_214",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO9000MapaCirurgico",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_215",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO9000MapaCirurgico",
+      "target": "urn:table:pessoa:profissional",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_216",
+      "source": "urn:screen:centro-cirurgico-forms:CCIO9000MapaCirurgico",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_217",
+      "source": "urn:screen:centro-cirurgico:CCIO9000Profissional",
+      "target": "urn:table:pessoa:disciplina",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_218",
+      "source": "urn:screen:centro-cirurgico:CCIO9000Profissional",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_219",
+      "source": "urn:screen:centro-cirurgico:CCIO9000Profissional",
+      "target": "urn:table:pessoa:profissional",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_220",
+      "source": "urn:screen:centro-cirurgico:CCIO9000Profissional",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_221",
+      "source": "urn:screen:centro-cirurgico:CCIO9000ProfissionalDTO",
+      "target": "urn:table:pessoa:estudante",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_222",
+      "source": "urn:screen:centro-cirurgico:CCIO9000ProfissionalDTO",
+      "target": "urn:table:pessoa:profissional",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_223",
+      "source": "urn:screen:centro-cirurgico:CCIO9000RecemNascido",
+      "target": "urn:table:sihosp:encaminhamento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_224",
+      "source": "urn:screen:centro-cirurgico:CCIO9000equipe",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_225",
+      "source": "urn:screen:centro-cirurgico:CCIO9000equipe",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_226",
+      "source": "urn:screen:centro-cirurgico:CCIO9000equipe",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_227",
+      "source": "urn:screen:centro-cirurgico:CCIO9000profilaxia",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_228",
+      "source": "urn:screen:centro-cirurgico:CCIO9000profilaxia",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_229",
+      "source": "urn:screen:centro-cirurgico:CCIO9000profilaxia",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_230",
+      "source": "urn:screen:centro-cirurgico:CCIOFAPAC",
+      "target": "urn:table:pessoa:estudante",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_231",
+      "source": "urn:screen:centro-cirurgico:CCIOFAPAC",
+      "target": "urn:table:pessoa:etnia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_232",
+      "source": "urn:screen:centro-cirurgico:CCIOFAPAC",
+      "target": "urn:table:pessoa:municipio",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_233",
+      "source": "urn:screen:centro-cirurgico:CCIOFAPAC",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_234",
+      "source": "urn:screen:centro-cirurgico:CCIOFAPAC",
+      "target": "urn:table:sihosp:apac",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_235",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0001",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_236",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0001mn",
+      "target": "urn:table:infra_estrutura:recurso",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_237",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0001mn",
+      "target": "urn:table:programacao:curso",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_238",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0001mn",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_239",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0001mn",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_240",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0002",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_241",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0002",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_242",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0002",
+      "target": "urn:table:sihosp:dec_demanda_checklist",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_243",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0002",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_244",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0002",
+      "target": "urn:table:ca:ca_cliente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_245",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0003",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_246",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0003",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_247",
+      "source": "urn:screen:demanda-cirurgica-monitoracao:DCMO0003",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_248",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0001",
+      "target": "urn:table:pessoa:pontuacao",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_249",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0001",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_250",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0001mn",
+      "target": "urn:table:pessoa:pontuacao",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_251",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0001mn",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_252",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0002",
+      "target": "urn:table:pessoa:pontuacao",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_253",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0002",
+      "target": "urn:table:programacao:grupo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_254",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0002",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_255",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0002",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_256",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0002",
+      "target": "urn:table:sihosp:procedimento_geral",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_257",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0002mn",
+      "target": "urn:table:pessoa:pontuacao",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_258",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0002mn",
+      "target": "urn:table:programacao:curso",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_259",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0002mn",
+      "target": "urn:table:sihosp:procedimento_geral",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_260",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0002mn",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_261",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0002mn",
+      "target": "urn:table:sihosp:procedimento_interno",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_262",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0003",
+      "target": "urn:table:pessoa:pontuacao",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_263",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0003",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_264",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0003mn",
+      "target": "urn:table:pessoa:pontuacao",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_265",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0003mn",
+      "target": "urn:table:programacao:curso",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_266",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0003mn",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_267",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0004",
+      "target": "urn:table:pessoa:pontuacao",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_268",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0004",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_269",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0005",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_270",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0005",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_271",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0005",
+      "target": "urn:table:pessoa:unidade_tecnica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_272",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0005",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_273",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECG0005",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_274",
+      "source": "urn:screen:demanda-cirurgica-gerencial:DECGBot",
+      "target": "urn:table:sihosp:teste",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_275",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001",
+      "target": "urn:table:pessoa:area_gerencial",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO",
+          "SEQ_PACIENTE"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_276",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_277",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_278",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001",
+      "target": "urn:table:pessoa:especificacao_equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_279",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_280",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001CaixaCirurgica",
+      "target": "urn:table:sihosp:kcc_caixa_cirurgica",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_281",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001CaixaCirurgica",
+      "target": "urn:table:sihosp:kcc_kit_solicitado",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_282",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001CaixaCirurgicamn",
+      "target": "urn:table:sihosp:kcc_caixa_cirurgica",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_283",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Demanda",
+      "target": "urn:table:pessoa:equipe",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "SEQ_PACIENTE"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_284",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Demanda",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_285",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Demanda",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_286",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Demanda",
+      "target": "urn:table:sihosp:demanda_cirurgica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_287",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Insumo",
+      "target": "urn:table:sihosp:kcc_kit_solicitado",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_288",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Insumo",
+      "target": "urn:table:sihosp:produto",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_289",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Insumomn",
+      "target": "urn:table:sihosp:produto",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_290",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Material",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_291",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Material",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_292",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Material",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_293",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Ortese",
+      "target": "urn:table:pessoa:profissional",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_294",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Ortese",
+      "target": "urn:table:sihosp:produto",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_295",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001OrteseProtese",
+      "target": "urn:table:sihosp:kcc_kit_solicitado",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_296",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001OrteseProtese",
+      "target": "urn:table:sihosp:produto",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_297",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001OrteseProtesemn",
+      "target": "urn:table:sihosp:produto",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_298",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Recurso",
+      "target": "urn:table:infra_estrutura:recurso",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_299",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Recurso",
+      "target": "urn:table:sihosp:kcc_equipamento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_300",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Recurso",
+      "target": "urn:table:sihosp:kcc_kit_solicitado",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_301",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Recursomn",
+      "target": "urn:table:infra_estrutura:recurso",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_302",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0001Recursomn",
+      "target": "urn:table:sihosp:kcc_equipamento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_303",
+      "source": "urn:screen:sihosptray:DECI0001MN",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "ID_DEMANDA_CIRURGICA"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_304",
+      "source": "urn:screen:sihosptray:DECI0001MN",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_305",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0002",
+      "target": "urn:table:pessoa:area_gerencial",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "SEQ_PACIENTE"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_306",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0002",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_307",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0002",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_308",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0002",
+      "target": "urn:table:pessoa:especificacao_equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_309",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0002",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_310",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0003",
+      "target": "urn:table:sihosp:motivo_saida",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_311",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0003MotivoSaida",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_312",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0004Suspensao",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_313",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0004Suspensao",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_314",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0004Suspensao",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_315",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0005",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_316",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0005mn",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_317",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0005mn",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_318",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0005mn",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_319",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0006",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_320",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0006",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_321",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0007",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_322",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0007",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_323",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0008",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_324",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0008",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_325",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0010",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "ID_DEMANDA_CIRURGICA",
+          "SEQ_FILA_REGULADA"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_326",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0010",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_327",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0011",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_328",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0011",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_329",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0012",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_330",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI0012",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_331",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI1000",
+      "target": "urn:table:infra_estrutura:infra_estrutura",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_332",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI1000",
+      "target": "urn:table:pessoa:area_gerencial",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_333",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI1000",
+      "target": "urn:table:pessoa:centro_custo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_334",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI1000",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_335",
+      "source": "urn:screen:demanda-cirurgia-forms:DECI1000",
+      "target": "urn:table:pessoa:especificacao_equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_336",
+      "source": "urn:screen:centro-cirurgico-forms:FichaInfeccao",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_337",
+      "source": "urn:screen:centro-cirurgico-forms:FichaInfeccao",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_338",
+      "source": "urn:screen:centro-cirurgico-forms:FichaInfeccao",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_339",
+      "source": "urn:screen:kit-cirurgico:KCCEquipamentoForms",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_340",
+      "source": "urn:screen:kit-cirurgico:KCCEquipamentoForms",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_341",
+      "source": "urn:screen:kit-cirurgico:KCCEquipamentoForms",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_342",
+      "source": "urn:screen:kit-cirurgico:KCCEquipamentoFormsmn",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_343",
+      "source": "urn:screen:kit-cirurgico:KCCEquipamentoFormsmn",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_344",
+      "source": "urn:screen:kit-cirurgico:KCCEquipamentoFormsmn",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_345",
+      "source": "urn:screen:kit-cirurgico:KCCI0001",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_346",
+      "source": "urn:screen:kit-cirurgico:KCCI0001",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_347",
+      "source": "urn:screen:kit-cirurgico:KCCI0001",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_348",
+      "source": "urn:screen:kit-cirurgico:KCCI0001mn",
+      "target": "urn:table:sihosp:kcc_equipamento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_349",
+      "source": "urn:screen:kit-cirurgico:KCCI0002",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_350",
+      "source": "urn:screen:kit-cirurgico:KCCI0002",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_351",
+      "source": "urn:screen:kit-cirurgico:KCCI0002",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_352",
+      "source": "urn:screen:kit-cirurgico:KCCI0002mn",
+      "target": "urn:table:sihosp:produto",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_353",
+      "source": "urn:screen:kit-cirurgico:KCCI0003",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_354",
+      "source": "urn:screen:kit-cirurgico:KCCI0003",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_355",
+      "source": "urn:screen:kit-cirurgico:KCCI0003",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_356",
+      "source": "urn:screen:kit-cirurgico:KCCI0003mn",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_357",
+      "source": "urn:screen:kit-cirurgico:KCCI0003mn",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_358",
+      "source": "urn:screen:kit-cirurgico:KCCI0003mn",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_359",
+      "source": "urn:screen:kit-cirurgico:KCCI0004",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_360",
+      "source": "urn:screen:kit-cirurgico:KCCI0004",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_361",
+      "source": "urn:screen:kit-cirurgico:KCCI0004",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_362",
+      "source": "urn:screen:kit-cirurgico:KCCI0004mn",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_363",
+      "source": "urn:screen:kit-cirurgico:KCCI0004mn",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_364",
+      "source": "urn:screen:kit-cirurgico:KCCI0004mn",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_365",
+      "source": "urn:screen:kit-cirurgico:KCCI0005",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_366",
+      "source": "urn:screen:kit-cirurgico:KCCI0005",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_367",
+      "source": "urn:screen:kit-cirurgico:KCCI0005",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_368",
+      "source": "urn:screen:kit-cirurgico:KCCI0005mn",
+      "target": "urn:table:sihosp:kcc_caixa_cirurgica",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_369",
+      "source": "urn:screen:kit-cirurgico:KCCI0005mn",
+      "target": "urn:table:sihosp:kcc_instrumental",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_370",
+      "source": "urn:screen:kit-cirurgico:KCCI0006",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_371",
+      "source": "urn:screen:kit-cirurgico:KCCI0006",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_372",
+      "source": "urn:screen:kit-cirurgico:KCCI0006",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_373",
+      "source": "urn:screen:kit-cirurgico:KCCI0006mn",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_374",
+      "source": "urn:screen:kit-cirurgico:KCCI0006mn",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_375",
+      "source": "urn:screen:kit-cirurgico:KCCI0006mn",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_376",
+      "source": "urn:screen:kit-cirurgico:KCCI0007",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_377",
+      "source": "urn:screen:kit-cirurgico:KCCI0007",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_378",
+      "source": "urn:screen:kit-cirurgico:KCCI0007",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_379",
+      "source": "urn:screen:kit-cirurgico:KCCI0007mn",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_380",
+      "source": "urn:screen:kit-cirurgico:KCCI0007mn",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_381",
+      "source": "urn:screen:kit-cirurgico:KCCI0007mn",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_382",
+      "source": "urn:screen:kit-cirurgico:KCCI0008",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_383",
+      "source": "urn:screen:kit-cirurgico:KCCI0008",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_384",
+      "source": "urn:screen:kit-cirurgico:KCCI0008",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_385",
+      "source": "urn:screen:kit-cirurgico:KCCI0008mn",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_386",
+      "source": "urn:screen:kit-cirurgico:KCCI0008mn",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_387",
+      "source": "urn:screen:kit-cirurgico:KCCI0008mn",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_388",
+      "source": "urn:screen:kit-cirurgico:KCCI0009",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_389",
+      "source": "urn:screen:kit-cirurgico:KCCI0009",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_390",
+      "source": "urn:screen:kit-cirurgico:KCCI0009",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_391",
+      "source": "urn:screen:kit-cirurgico:KCCI0009mn",
+      "target": "urn:table:sihosp:produto",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_392",
+      "source": "urn:screen:kit-cirurgico:KCCI0013",
+      "target": "urn:table:sihosp:procedimento_interno",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_393",
+      "source": "urn:screen:kit-cirurgico:KCCInstrumentalForms",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_394",
+      "source": "urn:screen:kit-cirurgico:KCCInstrumentalForms",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_395",
+      "source": "urn:screen:kit-cirurgico:KCCInstrumentalForms",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_396",
+      "source": "urn:screen:kit-cirurgico:KCCInstrumentalFormsmn",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_397",
+      "source": "urn:screen:kit-cirurgico:KCCInstrumentalFormsmn",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_398",
+      "source": "urn:screen:kit-cirurgico:KCCInstrumentalFormsmn",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_399",
+      "source": "urn:screen:kit-cirurgico:KCCKitProdutoForms",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_400",
+      "source": "urn:screen:kit-cirurgico:KCCKitProdutoForms",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_401",
+      "source": "urn:screen:kit-cirurgico:KCCKitProdutoForms",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_402",
+      "source": "urn:screen:kit-cirurgico:KCCKitProdutoFormsmn",
+      "target": "urn:table:sihosp:kcc_kit_assistencial",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_403",
+      "source": "urn:screen:kit-cirurgico:KCCKitProdutoFormsmn",
+      "target": "urn:table:sihosp:produto",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_404",
+      "source": "urn:screen:kit-cirurgico:KCCMovimentacaoForms",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_405",
+      "source": "urn:screen:kit-cirurgico:KCCMovimentacaoForms",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_406",
+      "source": "urn:screen:kit-cirurgico:KCCMovimentacaoForms",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_407",
+      "source": "urn:screen:kit-cirurgico:KCCMovimentacaoFormsmn",
+      "target": "urn:table:sihosp:kcc_equipamento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_408",
+      "source": "urn:screen:kit-cirurgico:KCCMovimentacaoFormsmn",
+      "target": "urn:table:sihosp:kcc_instrumental",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_409",
+      "source": "urn:screen:kit-cirurgico:KCCMovimentacaoFormsmn",
+      "target": "urn:table:sihosp:kcc_kit_equipamento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_410",
+      "source": "urn:screen:kit-cirurgico:KCCMovimentacaoFormsmn",
+      "target": "urn:table:sihosp:kcc_tipo_movimentacao",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_411",
+      "source": "urn:screen:kit-cirurgico:KCCTipoMovimentacaoForms",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_412",
+      "source": "urn:screen:kit-cirurgico:KCCTipoMovimentacaoForms",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_413",
+      "source": "urn:screen:kit-cirurgico:KCCTipoMovimentacaoForms",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_414",
+      "source": "urn:screen:kit-cirurgico:KCCTipoMovimentacaoFormsmn",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_415",
+      "source": "urn:screen:kit-cirurgico:KCCTipoMovimentacaoFormsmn",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_416",
+      "source": "urn:screen:kit-cirurgico:KCCTipoMovimentacaoFormsmn",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_417",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:MCC9000",
+      "target": "urn:table:infra_estrutura:infra_estrutura",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_418",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:MCC9000",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_419",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:MCC9000",
+      "target": "urn:table:sihosp:apac",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_420",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:MCC9000",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_421",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:MCC9000",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_422",
+      "source": "urn:screen:centro-cirurgico-forms:MateriaisCirurgicos",
+      "target": "urn:table:pessoa:paciente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_423",
+      "source": "urn:screen:centro-cirurgico-forms:MateriaisCirurgicos",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_424",
+      "source": "urn:screen:centro-cirurgico-forms:ReportFichaOPME",
+      "target": "urn:table:infra_estrutura:leito",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_425",
+      "source": "urn:screen:centro-cirurgico-forms:ReportFichaOPME",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_426",
+      "source": "urn:screen:centro-cirurgico-forms:ReportFichaOPME",
+      "target": "urn:table:pessoa:profissional",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_427",
+      "source": "urn:screen:centro-cirurgico-forms:ReportFichaOPME",
+      "target": "urn:table:pessoa:unidade_tecnica",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_428",
+      "source": "urn:screen:centro-cirurgico-forms:ReportFichaOPME",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_429",
+      "source": "urn:screen:pep-forms:SMOV5020",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_430",
+      "source": "urn:screen:pep-forms:SMOV5020Anestesico",
+      "target": "urn:table:sihosp:produto",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_431",
+      "source": "urn:screen:pep-forms:SMOV5020Anestesicomn",
+      "target": "urn:table:sihosp:produto",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_432",
+      "source": "urn:screen:pep-forms:SMOV5020Cirurgia",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_433",
+      "source": "urn:screen:pep-forms:SMOV5020Cirurgia",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_434",
+      "source": "urn:screen:pep-forms:SMOV5020Cirurgiamn",
+      "target": "urn:table:pessoa:profissional",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_435",
+      "source": "urn:screen:pep-forms:SMOV5020Cirurgiamn",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_436",
+      "source": "urn:screen:pep-forms:SMOV5020Cirurgiamn",
+      "target": "urn:table:sihosp:pep_cirurgia_tipo",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_437",
+      "source": "urn:screen:pep-forms:SMOV5053CirurgiaAPAC",
+      "target": "urn:table:pessoa:paciente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_438",
+      "source": "urn:screen:pep-forms:SMOV5053CirurgiaAPAC",
+      "target": "urn:table:sihosp:apac",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_439",
+      "source": "urn:screen:pep-forms:SMOV5053CirurgiaAPAC",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_440",
+      "source": "urn:screen:pep-forms:SMOV5053CirurgiaAPAC",
+      "target": "urn:table:sihosp:movimento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_441",
+      "source": "urn:screen:pep-internacao-forms:TermoConsentimentoAvaliacaoPreAnestesica",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_442",
+      "source": "urn:screen:pep-internacao-forms:TermoConsentimentoAvaliacaoPreAnestesica",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_443",
+      "source": "urn:screen:centro-cirurgico-forms:UCCCIO0004Adicionar",
+      "target": "urn:table:pessoa:cargo",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_444",
+      "source": "urn:screen:centro-cirurgico-forms:UCCCIO0004Adicionar",
+      "target": "urn:table:pessoa:participante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_445",
+      "source": "urn:screen:centro-cirurgico-forms:UCCCIO0004Adicionar",
+      "target": "urn:table:sihosp:tipo_participante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_446",
+      "source": "urn:screen:pep-forms:UCCirurgia",
+      "target": "urn:table:pessoa:paciente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_447",
+      "source": "urn:screen:pep-forms:UCCirurgia",
+      "target": "urn:table:sihosp:apac",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_448",
+      "source": "urn:screen:pep-forms:UCCirurgia",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_449",
+      "source": "urn:screen:pep-forms:UCCirurgia",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_450",
+      "source": "urn:screen:pep-forms:UCCirurgia",
+      "target": "urn:table:sihosp:internacao",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_451",
+      "source": "urn:screen:pep-forms:UCCirurgiaAnestesico",
+      "target": "urn:table:sihosp:pep_cirurgia_anestesico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_452",
+      "source": "urn:screen:pep-forms:UCCirurgiaAnestesico",
+      "target": "urn:table:sihosp:produto",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_453",
+      "source": "urn:screen:pep-forms:UCCirurgiaParticipante",
+      "target": "urn:table:pessoa:participante",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_454",
+      "source": "urn:screen:pep-forms:UCCirurgiaParticipante",
+      "target": "urn:table:pessoa:pessoa",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_455",
+      "source": "urn:screen:pep-forms:UCCirurgiaParticipante",
+      "target": "urn:table:pessoa:profissional",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_456",
+      "source": "urn:screen:pep-forms:UCCirurgiaParticipante",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_457",
+      "source": "urn:screen:pep-forms:UCCirurgiaParticipante",
+      "target": "urn:table:sihosp:pep_cirurgia_participante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_458",
+      "source": "urn:screen:kanban-ps:_CentroCirurgico",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_459",
+      "source": "urn:screen:demanda-cirurgia-forms:dtsCirurgias",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_460",
+      "source": "urn:screen:demanda-cirurgia-forms:dtsCirurgias",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_461",
+      "source": "urn:screen:demanda-cirurgia-forms:dtsCirurgias",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_462",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:rep9000",
+      "target": "urn:table:sihosp:aviso_cirurgico",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO",
+          "SEQ_PACIENTE"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_463",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:rep9000",
+      "target": "urn:table:sihosp:mapa_cirurgico",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_464",
+      "source": "urn:screen:mapa-cirurgico-cirurgia:rep9000",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_465",
+      "source": "urn:screen:pep-forms:reportOrientaciesPosCirurgiaBariatrica",
+      "target": "urn:table:sihosp:atendimento",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_466",
+      "source": "urn:screen:pep-forms:reportOrientaciesPosCirurgiaBariatrica",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_467",
+      "source": "urn:screen:demanda-cirurgia-forms:rptAviso",
+      "target": "urn:table:infra_estrutura:leito",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_468",
+      "source": "urn:screen:demanda-cirurgia-forms:rptAviso",
+      "target": "urn:table:pessoa:convenio",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_469",
+      "source": "urn:screen:demanda-cirurgia-forms:rptAviso",
+      "target": "urn:table:pessoa:equipe",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_470",
+      "source": "urn:screen:demanda-cirurgia-forms:rptAviso",
+      "target": "urn:table:pessoa:estudante",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_471",
+      "source": "urn:screen:demanda-cirurgia-forms:rptAviso",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_472",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgiaConfirmacao",
+      "target": "urn:table:pessoa:equipe",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_473",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgiaConfirmacao",
+      "target": "urn:table:pessoa:evento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_474",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgiaConfirmacao",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_475",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgiaConfirmacao",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_476",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgiaIdentificacao",
+      "target": "urn:table:pessoa:equipe",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_477",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgiaIdentificacao",
+      "target": "urn:table:pessoa:evento",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_478",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgiaIdentificacao",
+      "target": "urn:table:pessoa:paciente",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_479",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgiaIdentificacao",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_480",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgiaRegistro",
+      "target": "urn:table:pessoa:equipe",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_481",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgiaRegistro",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_482",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgias",
+      "target": "urn:table:pessoa:paciente",
+      "type": "PERSISTS_MASTER_TABLE",
+      "weight": 3.0,
+      "properties": {
+        "stitchKeys": [
+          "NUM_ATENDIMENTO",
+          "NUM_PRONTUARIO",
+          "COD_LEITO"
+        ]
+      }
+    },
+    {
+      "id": "edge_db_483",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgias",
+      "target": "urn:table:pessoa:profissional",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_db_484",
+      "source": "urn:screen:demanda-cirurgia-forms:rptCirurgias",
+      "target": "urn:table:sihosp:cirurgia",
+      "type": "QUERIES_RELATED_TABLE",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "id": "edge_stage_screen_485",
+      "source": "urn:stage:1:indicacao-regulacao-cross",
+      "target": "urn:screen:centro-cirurgico:DECI0001mn",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DECI0001mn"
+      }
+    },
+    {
+      "id": "edge_stage_screen_486",
+      "source": "urn:stage:1:indicacao-regulacao-cross",
+      "target": "urn:screen:centro-cirurgico:DECI0001",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DECI0001"
+      }
+    },
+    {
+      "id": "edge_stage_screen_487",
+      "source": "urn:stage:1:indicacao-regulacao-cross",
+      "target": "urn:screen:centro-cirurgico:DECG0001",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DECG0001"
+      }
+    },
+    {
+      "id": "edge_stage_screen_488",
+      "source": "urn:stage:1:indicacao-regulacao-cross",
+      "target": "urn:screen:centro-cirurgico:DECG0002",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DECG0002"
+      }
+    },
+    {
+      "id": "edge_stage_screen_489",
+      "source": "urn:stage:1:indicacao-regulacao-cross",
+      "target": "urn:screen:centro-cirurgico:DECG0003",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DECG0003"
+      }
+    },
+    {
+      "id": "edge_stage_screen_490",
+      "source": "urn:stage:1:indicacao-regulacao-cross",
+      "target": "urn:screen:centro-cirurgico:DECI0002",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DECI0002"
+      }
+    },
+    {
+      "id": "edge_stage_screen_491",
+      "source": "urn:stage:2:agendamento-escala-mapa",
+      "target": "urn:screen:centro-cirurgico:DECI0010",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DECI0010"
+      }
+    },
+    {
+      "id": "edge_stage_screen_492",
+      "source": "urn:stage:2:agendamento-escala-mapa",
+      "target": "urn:screen:centro-cirurgico:CCIO0001",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0001"
+      }
+    },
+    {
+      "id": "edge_stage_screen_493",
+      "source": "urn:stage:2:agendamento-escala-mapa",
+      "target": "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0001Agendamento"
+      }
+    },
+    {
+      "id": "edge_stage_screen_494",
+      "source": "urn:stage:2:agendamento-escala-mapa",
+      "target": "urn:screen:centro-cirurgico:CCIO0001MapaCirurgia",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0001MapaCirurgia"
+      }
+    },
+    {
+      "id": "edge_stage_screen_495",
+      "source": "urn:stage:2:agendamento-escala-mapa",
+      "target": "urn:screen:centro-cirurgico:CCIO9000",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO9000"
+      }
+    },
+    {
+      "id": "edge_stage_screen_496",
+      "source": "urn:stage:2:agendamento-escala-mapa",
+      "target": "urn:screen:centro-cirurgico:DCMO0001",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DCMO0001"
+      }
+    },
+    {
+      "id": "edge_stage_screen_497",
+      "source": "urn:stage:3:suprimentos-cme-opme",
+      "target": "urn:screen:centro-cirurgico:KCCI0001",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário KCCI0001"
+      }
+    },
+    {
+      "id": "edge_stage_screen_498",
+      "source": "urn:stage:3:suprimentos-cme-opme",
+      "target": "urn:screen:centro-cirurgico:KCCKitProdutoForms",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário KCCKitProdutoForms"
+      }
+    },
+    {
+      "id": "edge_stage_screen_499",
+      "source": "urn:stage:3:suprimentos-cme-opme",
+      "target": "urn:screen:centro-cirurgico:KCCInstrumentalForms",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário KCCInstrumentalForms"
+      }
+    },
+    {
+      "id": "edge_stage_screen_500",
+      "source": "urn:stage:3:suprimentos-cme-opme",
+      "target": "urn:screen:centro-cirurgico:DECI0001Ortese",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DECI0001Ortese"
+      }
+    },
+    {
+      "id": "edge_stage_screen_501",
+      "source": "urn:stage:3:suprimentos-cme-opme",
+      "target": "urn:screen:centro-cirurgico:DECI0001OrteseProtese",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DECI0001OrteseProtese"
+      }
+    },
+    {
+      "id": "edge_stage_screen_502",
+      "source": "urn:stage:3:suprimentos-cme-opme",
+      "target": "urn:screen:centro-cirurgico:ReportFichaOPME",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário ReportFichaOPME"
+      }
+    },
+    {
+      "id": "edge_stage_screen_503",
+      "source": "urn:stage:4:recepcao-preparo-paciente",
+      "target": "urn:screen:centro-cirurgico:CCIO0001Confirmacao",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0001Confirmacao"
+      }
+    },
+    {
+      "id": "edge_stage_screen_504",
+      "source": "urn:stage:4:recepcao-preparo-paciente",
+      "target": "urn:screen:centro-cirurgico:CCIO0001IdentificarEquipe",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0001IdentificarEquipe"
+      }
+    },
+    {
+      "id": "edge_stage_screen_505",
+      "source": "urn:stage:4:recepcao-preparo-paciente",
+      "target": "urn:screen:centro-cirurgico:TermoConsentimentoAvaliacaoPreAnestesica",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário TermoConsentimentoAvaliacaoPreAnestesica"
+      }
+    },
+    {
+      "id": "edge_stage_screen_506",
+      "source": "urn:stage:4:recepcao-preparo-paciente",
+      "target": "urn:screen:centro-cirurgico:DCMO0002",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DCMO0002"
+      }
+    },
+    {
+      "id": "edge_stage_screen_507",
+      "source": "urn:stage:5:bloco-cirurgia-segura-ato",
+      "target": "urn:screen:centro-cirurgico:CCIO0002",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0002"
+      }
+    },
+    {
+      "id": "edge_stage_screen_508",
+      "source": "urn:stage:5:bloco-cirurgia-segura-ato",
+      "target": "urn:screen:centro-cirurgico:CCIO0004",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0004"
+      }
+    },
+    {
+      "id": "edge_stage_screen_509",
+      "source": "urn:stage:5:bloco-cirurgia-segura-ato",
+      "target": "urn:screen:centro-cirurgico:CCIO0002Procedimento",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0002Procedimento"
+      }
+    },
+    {
+      "id": "edge_stage_screen_510",
+      "source": "urn:stage:5:bloco-cirurgia-segura-ato",
+      "target": "urn:screen:centro-cirurgico:CCIO0002Participante",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0002Participante"
+      }
+    },
+    {
+      "id": "edge_stage_screen_511",
+      "source": "urn:stage:5:bloco-cirurgia-segura-ato",
+      "target": "urn:screen:centro-cirurgico:CCIO0002Ortese",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0002Ortese"
+      }
+    },
+    {
+      "id": "edge_stage_screen_512",
+      "source": "urn:stage:5:bloco-cirurgia-segura-ato",
+      "target": "urn:screen:centro-cirurgico:UCCirurgia",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário UCCirurgia"
+      }
+    },
+    {
+      "id": "edge_stage_screen_513",
+      "source": "urn:stage:6:srpa-recuperacao-pos-anestesica",
+      "target": "urn:screen:centro-cirurgico:CCIO0002Suspensao",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO0002Suspensao"
+      }
+    },
+    {
+      "id": "edge_stage_screen_514",
+      "source": "urn:stage:6:srpa-recuperacao-pos-anestesica",
+      "target": "urn:screen:centro-cirurgico:SMOV5020",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário SMOV5020"
+      }
+    },
+    {
+      "id": "edge_stage_screen_515",
+      "source": "urn:stage:6:srpa-recuperacao-pos-anestesica",
+      "target": "urn:screen:centro-cirurgico:SMOV5020Anestesico",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário SMOV5020Anestesico"
+      }
+    },
+    {
+      "id": "edge_stage_screen_516",
+      "source": "urn:stage:6:srpa-recuperacao-pos-anestesica",
+      "target": "urn:screen:centro-cirurgico:SMOV5020Cirurgia",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário SMOV5020Cirurgia"
+      }
+    },
+    {
+      "id": "edge_stage_screen_517",
+      "source": "urn:stage:6:srpa-recuperacao-pos-anestesica",
+      "target": "urn:screen:centro-cirurgico:DCMO0003",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário DCMO0003"
+      }
+    },
+    {
+      "id": "edge_stage_screen_518",
+      "source": "urn:stage:7:alta-laudo-faturamento-apac",
+      "target": "urn:screen:centro-cirurgico:CCIO1000",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário CCIO1000"
+      }
+    },
+    {
+      "id": "edge_stage_screen_519",
+      "source": "urn:stage:7:alta-laudo-faturamento-apac",
+      "target": "urn:screen:centro-cirurgico:SMOV5053CirurgiaAPAC",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário SMOV5053CirurgiaAPAC"
+      }
+    },
+    {
+      "id": "edge_stage_screen_520",
+      "source": "urn:stage:7:alta-laudo-faturamento-apac",
+      "target": "urn:screen:centro-cirurgico:rptCirurgiaRegistro",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário rptCirurgiaRegistro"
+      }
+    },
+    {
+      "id": "edge_stage_screen_521",
+      "source": "urn:stage:7:alta-laudo-faturamento-apac",
+      "target": "urn:screen:centro-cirurgico:rep9000",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário rep9000"
+      }
+    },
+    {
+      "id": "edge_stage_screen_522",
+      "source": "urn:stage:7:alta-laudo-faturamento-apac",
+      "target": "urn:screen:centro-cirurgico:Agradecimento",
+      "type": "ORCHESTRATES_SCREEN",
+      "weight": 4.0,
+      "properties": {
+        "description": "Etapa clínica orquestra tela de formulário Agradecimento"
+      }
+    }
+  ]
+}

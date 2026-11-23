@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GraphRAGCentroCirurgicoContract",
+  "description": "Contrato formal de dados e JSON Schema para o Grafo de Conhecimento, Comunidades Hierárquicas e Motor de RAG do Centro Cirúrgico FAMEMA.",
+  "type": "object",
+  "required": [
+    "specVersion",
+    "domainUrn",
+    "clusterId",
+    "generatedAt",
+    "graphrag_summary",
+    "nodes_schema",
+    "edges_schema",
+    "communities_schema",
+    "covariates_schema",
+    "traversal_schema"
+  ],
+  "properties": {
+    "specVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "domainUrn": {
+      "type": "string",
+      "const": "urn:domain:centro-cirurgico-procedimentos"
+    },
+    "clusterId": {
+      "type": "string",
+      "const": "cluster:cirurgia"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "graphrag_summary": {
+      "type": "object",
+      "required": [
+        "total_nodes",
+        "total_edges",
+        "total_communities",
+        "total_rules",
+        "total_screens",
+        "total_tables",
+        "total_csharp_modules"
+      ],
+      "properties": {
+        "total_nodes": { "type": "integer", "minimum": 1 },
+        "total_edges": { "type": "integer", "minimum": 1 },
+        "total_communities": { "type": "integer", "minimum": 1 },
+        "total_rules": { "type": "integer", "minimum": 1 },
+        "total_screens": { "type": "integer", "minimum": 1 },
+        "total_tables": { "type": "integer", "minimum": 1 },
+        "total_csharp_modules": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "nodes_schema": {
+      "type": "object",
+      "required": ["entity_types", "node_definition"],
+      "properties": {
+        "entity_types": {
+          "type": "array",
+          "items": { "type": "string" },
+          "examples": [
+            "CLINICAL_STAGE",
+            "SCREEN_FORM",
+            "CSHARP_MODULE",
+            "DATABASE_TABLE",
+            "PHYSICAL_SECTOR",
+            "HOSPITAL_UNIT",
+            "ROLE_ACTOR",
+            "BUSINESS_RULE"
+          ]
+        },
+        "node_definition": {
+          "type": "object",
+          "required": ["id", "type", "label", "community_l0", "community_l1", "properties"],
+          "properties": {
+            "id": { "type": "string", "pattern": "^urn:[a-z0-9-]+:.*$" },
+            "type": { "type": "string" },
+            "label": { "type": "string" },
+            "community_l0": { "type": "string" },
+            "community_l1": { "type": "string" },
+            "community_l2": { "type": "string" },
+            "properties": { "type": "object" }
+          }
+        }
+      }
+    },
+    "edges_schema": {
+      "type": "object",
+      "required": ["relationship_types", "edge_definition"],
+      "properties": {
+        "relationship_types": {
+          "type": "array",
+          "items": { "type": "string" },
+          "examples": [
+            "PRECEDES",
+            "NAVIGATES_TO",
+            "PERSISTS_MASTER_TABLE",
+            "QUERIES_RELATED_TABLE",
+            "ORCHESTRATES_SCREEN",
+            "LOCATED_IN",
+            "PERFORMED_BY",
+            "ENFORCES_RULE"
+          ]
+        },
+        "edge_definition": {
+          "type": "object",
+          "required": ["id", "source", "target", "type", "weight", "properties"],
+          "properties": {
+            "id": { "type": "string" },
+            "source": { "type": "string" },
+            "target": { "type": "string" },
+            "type": { "type": "string" },
+            "weight": { "type": "number", "minimum": 0.1 },
+            "properties": { "type": "object" }
+          }
+        }
+      }
+    },
+    "communities_schema": {
+      "type": "object",
+      "required": ["hierarchy_levels", "community_definition"],
+      "properties": {
+        "hierarchy_levels": {
+          "type": "array",
+          "items": { "type": "integer" },
+          "examples": [0, 1, 2]
+        },
+        "community_definition": {
+          "type": "object",
+          "required": ["id", "level", "title", "color", "executive_summary"],
+          "properties": {
+            "id": { "type": "string" },
+            "level": { "type": "integer", "minimum": 0, "maximum": 3 },
+            "title": { "type": "string" },
+            "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+            "executive_summary": { "type": "string" },
+            "findings": { "type": "array", "items": { "type": "string" } },
+            "risks": { "type": "string" },
+            "key_entities": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "covariates_schema": {
+      "type": "object",
+      "required": ["rule_definition"],
+      "properties": {
+        "rule_definition": {
+          "type": "object",
+          "required": ["ruleId", "title", "category", "enforcedBy", "expression", "description"],
+          "properties": {
+            "ruleId": { "type": "string", "pattern": "^RN-CC-[0-9]{3}$" },
+            "title": { "type": "string" },
+            "category": {
+              "type": "string",
+              "enum": [
+                "PRE_CONDITION_SURGICAL",
+                "CLINICAL_SAFETY_MANDATORY",
+                "POST_ANESTHESIA_DISCHARGE",
+                "SYSTEM_HARD_BLOCK",
+                "DATA_FILTER_RULE",
+                "CITIZEN_CLINICAL_PROTOCOL",
+                "PATIENT_SAFETY_PROTOCOL",
+                "INTRA_OPERATIVE_SAFETY"
+              ]
+            },
+            "enforcedBy": { "type": "array", "items": { "type": "string" } },
+            "expression": { "type": "string" },
+            "description": { "type": "string" }
+          }
+        }
+      }
+    },
+    "traversal_schema": {
+      "type": "object",
+      "required": ["journey_stages"],
+      "properties": {
+        "journey_stages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["order", "stage_id", "title", "actor", "key_screens", "key_tables"],
+            "properties": {
+              "order": { "type": "integer", "minimum": 1, "maximum": 7 },
+              "stage_id": { "type": "string" },
+              "title": { "type": "string" },
+              "actor": { "type": "string" },
+              "key_screens": { "type": "array", "items": { "type": "string" } },
+              "key_tables": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    }
+  }
+}

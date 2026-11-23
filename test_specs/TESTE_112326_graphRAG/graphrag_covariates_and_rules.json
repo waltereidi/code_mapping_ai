@@ -1,0 +1,118 @@
+{
+  "total_rules": 10,
+  "rules": [
+    {
+      "ruleId": "RN-CC-001",
+      "title": "Validação de Pedido Cirúrgico, Sangue (Hemocentro) e OPME",
+      "category": "PRE_CONDITION_SURGICAL",
+      "enforcedBy": [
+        "CCIO0001Agendamento",
+        "DECI0010"
+      ],
+      "expression": "EXISTS(RESERVA_HEMOTERAPICA) && (HAS_OPME == FALSE || OPME_STATUS == \"AUTORIZADO\")",
+      "description": "Todo agendamento cirúrgico de médio e grande porte exige prévia reserva transfusional junto ao Hemocentro e autorização formal da secretaria para uso de OPME."
+    },
+    {
+      "ruleId": "RN-CC-002",
+      "title": "Protocolo de Cirurgia Segura OMS (Sign-In, Time-Out e Sign-Out)",
+      "category": "CLINICAL_SAFETY_MANDATORY",
+      "enforcedBy": [
+        "CCIO0004",
+        "CCIO0002"
+      ],
+      "expression": "SIGN_IN_COMPLETED == TRUE && TIME_OUT_CONFIRMED == TRUE && SIGN_OUT_COUNT_VERIFIED == TRUE",
+      "description": "Obrigatória a execução verbal e o preenchimento digital do checklist cirúrgico em 3 momentos: antes da indução anestésica, antes da incisão da pele (pausa de segurança em silêncio) e antes da saída do paciente da sala."
+    },
+    {
+      "ruleId": "RN-CC-003",
+      "title": "Critérios de Alta da SRPA por Índice de Aldrete e Kroulik >= 9",
+      "category": "POST_ANESTHESIA_DISCHARGE",
+      "enforcedBy": [
+        "SMOV5020",
+        "CCIO0002"
+      ],
+      "expression": "ALDRETE_KROULIK_SCORE >= 9 && SINAIS_VITAIS_ESTAVEIS == TRUE",
+      "description": "A liberação do paciente da Sala de Recuperação Pós-Anestésica para a enfermaria ou domicílio requer pontuação mínima de 9 no índice de Aldrete e Kroulik."
+    },
+    {
+      "ruleId": "RN-CC-004",
+      "title": "Bloqueio Assistencial por Registro de Óbito",
+      "category": "SYSTEM_HARD_BLOCK",
+      "enforcedBy": [
+        "CCIO0001",
+        "CCIO0002",
+        "DECI0001",
+        "DECI0010"
+      ],
+      "expression": "SIHOSP.PACIENTE.DAT_OBITO IS NOT NULL",
+      "description": "Impede qualquer agendamento, alocação de sala ou registro cirúrgico caso o paciente possua data de óbito registrada na base central SIHOSP."
+    },
+    {
+      "ruleId": "RN-CC-005",
+      "title": "Bloqueio Assistencial por Inativação de Cliente/Conveniado",
+      "category": "SYSTEM_HARD_BLOCK",
+      "enforcedBy": [
+        "CCIO0001",
+        "CCIO0002",
+        "DECI0001"
+      ],
+      "expression": "SIHOSP.CA_CLIENTE.STATUS == \"INATIVO\"",
+      "description": "Impede a inclusão em fila ou agendamento de pacientes com cadastro administrativo marcado como INATIVO no subsistema CA."
+    },
+    {
+      "ruleId": "RN-CC-006",
+      "title": "Parametrização Dinâmica de Equipe Cirúrgica (CC_EQUIPE)",
+      "category": "DATA_FILTER_RULE",
+      "enforcedBy": [
+        "CCIO0001",
+        "CCIO0002CentroCusto"
+      ],
+      "expression": "LOOKUP(PARAMETRO, \"CC_EQUIPE\")",
+      "description": "Filtra e restringe a exibição de profissionais e especialidades de acordo com as permissões do Centro de Custo cirúrgico."
+    },
+    {
+      "ruleId": "RN-CC-007",
+      "title": "Parametrização e Restrição de Sala Operatória (SALA_CIRURGICA)",
+      "category": "DATA_FILTER_RULE",
+      "enforcedBy": [
+        "CCIO0001",
+        "CCIO0002"
+      ],
+      "expression": "LOOKUP(PARAMETRO, \"SALA_CIRURGICA\")",
+      "description": "Valida se a sala de cirurgia selecionada é compatível com o porte anestésico e a especialidade do procedimento."
+    },
+    {
+      "ruleId": "RN-CC-008",
+      "title": "Jejum Pré-Operatório Rigoroso",
+      "category": "CITIZEN_CLINICAL_PROTOCOL",
+      "enforcedBy": [
+        "CCIO0001Confirmacao",
+        "Guia_do_Cidadao"
+      ],
+      "expression": "TEMPO_JEJUM_SOLIDOS >= 8 && TEMPO_JEJUM_LIQUIDOS_CLAROS >= 2",
+      "description": "Conferência obrigatória na recepção e pela enfermagem do tempo de jejum para prevenção de broncoaspiração anestésica."
+    },
+    {
+      "ruleId": "RN-CC-009",
+      "title": "Demarcação Obrigatória de Lateralidade",
+      "category": "PATIENT_SAFETY_PROTOCOL",
+      "enforcedBy": [
+        "CCIO0004",
+        "Guia_do_Cidadao"
+      ],
+      "expression": "DEMARCACAO_LATERALIDADE_CONCLUIDA == TRUE",
+      "description": "O cirurgião responsável deve demarcar pessoalmente o local exato da incisão na pele do paciente consciente antes da entrada na sala de operação."
+    },
+    {
+      "ruleId": "RN-CC-010",
+      "title": "Contagem Rigorosa de Instrumentais e Compressas",
+      "category": "INTRA_OPERATIVE_SAFETY",
+      "enforcedBy": [
+        "CCIO0004",
+        "KCCI0001"
+      ],
+      "expression": "CONTAGEM_INICIAL == CONTAGEM_FINAL",
+      "description": "Antes do fechamento da cavidade operatória, o circulante e o instrumentador realizam contagem física rigorosa de compressas e gazes."
+    }
+  ]
+}

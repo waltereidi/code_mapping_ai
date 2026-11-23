@@ -1,0 +1,173 @@
+{
+  "total_communities": 8,
+  "communities": [
+    {
+      "id": "C0_CENTRO_CIRURGICO_GLOBAL",
+      "level": 0,
+      "title": "Comunidade Global 0: Bloco Cirúrgico Integrado e Ciclo Perioperatório FAMEMA",
+      "color": "#E11D48",
+      "executive_summary": "Macro-ecossistema hospitalar responsável pelo ciclo cirúrgico ponta a ponta: regulação de fila (CROSS), agendamento e mapa de salas cirúrgicas (HCI, HCII, HCIII), esterilização e suprimento CME/OPME, acolhimento pré-operatório do cidadão, bloco operatório com protocolo de cirurgia segura OMS, sala de recuperação pós-anestésica (SRPA) e liquidação de faturamento SUS/APAC.",
+      "metrics": {
+        "total_screens": 139,
+        "total_csharp_modules": 387,
+        "total_database_tables": 68,
+        "total_physical_sectors": 24,
+        "total_roles": 21
+      },
+      "key_entities": [
+        "urn:stage:1:indicacao-regulacao-cross",
+        "urn:stage:2:agendamento-escala-mapa",
+        "urn:stage:3:suprimentos-cme-opme",
+        "urn:stage:4:recepcao-preparo-paciente",
+        "urn:stage:5:bloco-cirurgia-segura-ato",
+        "urn:stage:6:srpa-recuperacao-pos-anestesica",
+        "urn:stage:7:alta-laudo-faturamento-apac"
+      ]
+    },
+    {
+      "id": "C1_DEMANDA_REGULACAO",
+      "level": 1,
+      "title": "Comunidade 1: Demanda Cirúrgica, Lista de Espera e Regulação CROSS (DECI & DECG)",
+      "color": "#EA580C",
+      "executive_summary": "Orquestra a entrada dos pacientes ambulatoriais e de urgência na fila cirúrgica regulada. Realiza estratificação clínica de risco e prioridade cirúrgica, pontuação por procedimento e idade, interface com a regulação CROSS do Estado de São Paulo e gestão de cancelamentos/suspensões de fila.",
+      "key_entities": [
+        "urn:screen:centro-cirurgico:DECI0001mn",
+        "urn:screen:centro-cirurgico:DECI0001",
+        "urn:screen:centro-cirurgico:DECG0001",
+        "urn:screen:centro-cirurgico:DECG0002",
+        "urn:screen:centro-cirurgico:DECG0003",
+        "urn:table:sihosp:demanda_cirurgica",
+        "urn:table:sihosp:demanda_cirurgica_procedimento"
+      ],
+      "findings": [
+        "Controle estrito de fila regulada por gravidade e tempo de espera.",
+        "Integração com regulação estadual CROSS para validação de cotas cirúrgicas.",
+        "Módulos C# de apoio: DemandaCirurgia.dll e DemandaCirurgiaForms.dll."
+      ],
+      "risks": "Risco de duplicidade de indicação caso prontuário unificado não seja validado na entrada."
+    },
+    {
+      "id": "C2_AGENDAMENTO_MAPA",
+      "level": 1,
+      "title": "Comunidade 2: Planejamento, Agendamento e Mapa Cirúrgico Diário (CCIO0001 & DECI0010)",
+      "color": "#3B82F6",
+      "executive_summary": "Transforma demandas da lista de espera em cirurgias agendadas com data, horário, sala e equipe médica. Distribui procedimentos entre as salas de grande porte do HCI, materno-infantis do HCII e oftalmológicas do HCIII. Emite o Mapa Cirúrgico Diário consolidado.",
+      "key_entities": [
+        "urn:screen:centro-cirurgico:DECI0010",
+        "urn:screen:centro-cirurgico:CCIO0001",
+        "urn:screen:centro-cirurgico:CCIO0001Agendamento",
+        "urn:screen:centro-cirurgico:CCIO0001MapaCirurgia",
+        "urn:table:sihosp:mapa_cirurgico",
+        "urn:table:sihosp:sala_cirurgica"
+      ],
+      "findings": [
+        "Parametrização dinâmica por sala operatória via regra SALA_CIRURGICA.",
+        "Matriz de conflito de salas entre cirurgias eletivas e urgências do PS.",
+        "Bloqueio automático de agendamento para pacientes com óbito ou cadastro inativo."
+      ],
+      "risks": "Superalocação de salas operatórias em horários de pico ou atrasos no término de procedimentos anteriores."
+    },
+    {
+      "id": "C3_CME_KITS_OPME",
+      "level": 1,
+      "title": "Comunidade 3: Central de Materiais Esterilizados (CME), Kits e OPME (KCC & DECI0001Ortese)",
+      "color": "#10B981",
+      "executive_summary": "Responsável pelo rastreamento físico e sistêmico dos instrumentais cirúrgicos, autoclave e esterilização na CME, montagem de kits assistenciais padronizados por especialidade e conferência rigorosa de órteses, próteses e materiais especiais (OPME) com autorização prévia.",
+      "key_entities": [
+        "urn:screen:centro-cirurgico:KCCI0001",
+        "urn:screen:centro-cirurgico:KCCKitProdutoForms",
+        "urn:screen:centro-cirurgico:KCCInstrumentalForms",
+        "urn:screen:centro-cirurgico:DECI0001OrteseProtese",
+        "urn:table:sihosp:kcc_kit_assistencial",
+        "urn:table:sihosp:ficha_opme"
+      ],
+      "findings": [
+        "Separação entre DLL de regras de negócio (KitCirurgicoDLL) e interface (KitCirurgicoForms).",
+        "Validação cruzada de OPME com autorização da Secretaria de Saúde.",
+        "Controle de lote, validade de esterilização e movimentação de caixas."
+      ],
+      "risks": "Falta de material consignado ou falha no ciclo de autoclave impedindo a abertura da sala cirúrgica."
+    },
+    {
+      "id": "C4_ACOLHIMENTO_PREPARO",
+      "level": 1,
+      "title": "Comunidade 4: Recepção, Acolhimento e Cuidados Pré-Operatórios (Guia do Cidadão)",
+      "color": "#8B5CF6",
+      "executive_summary": "Conexão direta entre o cidadão/paciente e o bloco cirúrgico. Compreende a conferência de jejum de 8h, acolhimento na recepção do 2º andar do Prédio São Francisco (HCI) ou HCII/HCIII, colocação de pulseira com conferência verbal dupla, verificação de TCLE e exames pré-operatórios, demarcação de lateralidade na pele pelo cirurgião e guarda de pertences com o acompanhante.",
+      "key_entities": [
+        "urn:screen:centro-cirurgico:CCIO0001Confirmacao",
+        "urn:screen:centro-cirurgico:TermoConsentimentoAvaliacaoPreAnestesica",
+        "urn:sector:famema:recep_centro_cir_rgico_hci",
+        "urn:role:famema:recepcionista",
+        "urn:role:famema:enfermeiro"
+      ],
+      "findings": [
+        "Alinhamento integral com as orientações do Guia do Cidadão da FAMEMA.",
+        "Barreira de segurança contra lateralidade trocada: demarcação física com caneta cirúrgica.",
+        "Instalação de acesso venoso calibroso e monitoramento pré-indução."
+      ],
+      "risks": "Quebra inadvertida de jejum pelo paciente ou extravio de termo de consentimento prévio."
+    },
+    {
+      "id": "C5_BLOCO_CIRURGIA_SEGURA",
+      "level": 1,
+      "title": "Comunidade 5: Bloco Operatório, Cirurgia Segura OMS e Ato Cirúrgico (CCIO0002 & CCIO0004)",
+      "color": "#D97706",
+      "executive_summary": "Coração assistencial invasivo do Centro Cirúrgico. Envolve a entrada na sala de operação, monitorização contínua pelo anestesiologista, cumprimento do Protocolo Internacional de Cirurgia Segura da OMS (Sign-In antes da indução, Time-Out verbal obrigatório em silêncio antes da incisão, e Sign-Out antes da saída de sala com contagem de compressas e instrumentais). Registra a equipe completa (cirurgiões, residentes, anestesistas, circulantes e instrumentadores).",
+      "key_entities": [
+        "urn:screen:centro-cirurgico:CCIO0002",
+        "urn:screen:centro-cirurgico:CCIO0004",
+        "urn:screen:centro-cirurgico:CCIO0002Procedimento",
+        "urn:screen:centro-cirurgico:CCIO0002Participante",
+        "urn:table:sihosp:cirurgia",
+        "urn:table:sihosp:checklist_cirurgico"
+      ],
+      "findings": [
+        "Time-Out compulsório antes da primeira incisão conforme regra RN-CC-002.",
+        "Registro temporal preciso: entrada em sala, início/fim da anestesia, início/fim da incisão, saída de sala.",
+        "Associação atômica de múltiplos procedimentos e uso de antimicrobianos profiláticos."
+      ],
+      "risks": "Omissão de checagem verbal do Time-Out ou discrepância na contagem de compressas."
+    },
+    {
+      "id": "C6_SRPA_RECUPERACAO",
+      "level": 1,
+      "title": "Comunidade 6: Sala de Recuperação Pós-Anestésica (SRPA) e Vitalidade (SMOV5020 & CCIO)",
+      "color": "#06B6D4",
+      "executive_summary": "Acolhe o paciente imediatamente após o término do ato cirúrgico para despertar monitorado. A equipe multiprofissional vigia sinais vitais, ritmo cardíaco, oxigenação e administra analgesia e antieméticos. A alta da SRPA é rigidamente condicionada ao escore de Aldrete e Kroulik >= 9.",
+      "key_entities": [
+        "urn:screen:centro-cirurgico:SMOV5020",
+        "urn:screen:centro-cirurgico:SMOV5020Anestesico",
+        "urn:screen:centro-cirurgico:SMOV5020Cirurgia",
+        "urn:sector:famema:sala_de_recupera__o_cc_hci",
+        "urn:table:sihosp:pep_cirurgia"
+      ],
+      "findings": [
+        "Aplicação contínua do escore de Aldrete e Kroulik (consciência, respiração, circulação, saturação, atividade motora).",
+        "Triagem de destino: alta direta para domicílio (Hospital-Dia) vs. transporte para enfermaria / UTI.",
+        "Comunicação imediata com o familiar/acompanhante na sala de espera externa."
+      ],
+      "risks": "Depressão respiratória pós-anestésica ou alta precoce da SRPA sem estabilidade hemodinâmica."
+    },
+    {
+      "id": "C7_FATURAMENTO_APAC_PEP",
+      "level": 1,
+      "title": "Comunidade 7: Documentação Cirúrgica, PEP, APAC e Faturamento SUS (CCIO1000 & SMOV5053)",
+      "color": "#4F46E5",
+      "executive_summary": "Fecha o ciclo cirúrgico no âmbito assistencial e administrativo. O cirurgião elabora o laudo operatório detalhado no Prontuário Eletrônico do Paciente (PEP), vinculando códigos de procedimentos SUS (SIGTAP), consumo de OPME e justificativas clínicas. Emite laudos de APAC e AIH para cobrança e faturamento governamental.",
+      "key_entities": [
+        "urn:screen:centro-cirurgico:CCIO1000",
+        "urn:screen:centro-cirurgico:SMOV5053CirurgiaAPAC",
+        "urn:screen:centro-cirurgico:rptCirurgiaRegistro",
+        "urn:table:sihosp:cirurgia_procedi_realizado",
+        "urn:table:sihosp:ficha_opme_material"
+      ],
+      "findings": [
+        "Fechamento de conta com validação cruzada entre insumos consumidos na sala e faturamento.",
+        "Auditoria de glosas e conformidade com laudos anestésicos.",
+        "Alimentação do Data Warehouse hospitalar para relatórios gerenciais e taxa de suspensão cirúrgica."
+      ],
+      "risks": "Glosa SUS por inconsistência entre o procedimento autorizado na APAC e o laudo operatório final."
+    }
+  ]
+}
