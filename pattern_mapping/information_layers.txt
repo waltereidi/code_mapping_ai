@@ -9,6 +9,7 @@ identifique a ordem de execução necessária para garantir que seja estabelecid
 
 --especificações de cada camada 
 1 -- *****structural comprehension
+{ forneça o mapeamento relacional do banco de dados }
 relacionamento de tabelas [dados armazenados no banco garante que sejam dados persistidos e reutilizados],[podem ser utilizados por varias fontes]
 mapeamento de formas de armazenmento de dados em disco -- mapear todas as formas de mapeamento persistente disco , pedras , cds etc..
 memoria ram , armazenamento temporário 
@@ -49,6 +50,10 @@ a inteligencia artifical deve criar pequenos agregados que vão conter os fluxos
 é importante neste nível ser possível identificar quantas transformações de dados possúem cada parte de fluxo identificado
 é importante identificar quais fluxos possuem pré-condições para execução e ser capaz de contabilizar a quantidade de pré condições para um dado percorra 
 todo o fluxo de execução, as pré-condições precisam ser detalhadas , identificaveis e contabilizadas 
+a inteligencia artificial precisa classificar pontos iniciais para os dispositivos de armazenamento mapeados na etapa de structural comprehensio, 
+pode esta forma classifica-los também se é um insert ou update ou delete em seu mapemento para facilitar o isolamento e identificação do dominio nas etapas seguintes,
+deve ser capaz também de que o mapeamento completo do call flow seja capaz de prever pré-condições que anulam ou impedem as partes subsequentes de dar continuidade 
+e este impedimento deve ser capaz de cooperar para identificação da ordem de execução ideal das etapas seguintes. 
 
 
 
@@ -62,6 +67,27 @@ nome de aplicações, principais artefatos
 aqui é importante que seja possível ter um glossário e este glossário esteja contido no, mapeie e armazene todas as nome de variaveis que se assemelham a 
 alguma palavra que pode ser utilizada para traduzir a chamada para a leitura natural depois
 mapeamento de um conjunto de identidades com um call flow 
+mapeamento de interface de usuário precisa ser feito com enfase em mapeamento do fluxo que um ser humano precisa fazer para executar um call flow, 
+este fluxo precisa ser isolado em "telas" comumente encontrados no código como uma interface de usuário, cada tela precisa identificar todos 
+os seus componentes e quais call flows são utilizados por ele 
+
+****parte 2 tech stack 
+{ identificar consultas na aplicação que sejam capazes de mapear e identificar grupos de pessoas que utilizam cada regra 
+de negócio, quais estruturas fisicas podem ser identificadas através das informações existentes  e solicitar ao usuário 
+que as fornesça, aqui a IA ajuda o usuário fornecendo as consultas que devem ser executadas para que os dados sejam propriamente utilizados }
+
+{ fornecer dados que enriqueçam o glossário mas que não façam parte da regra de negócio, solicite fonte de informações 
+correlacionadas que não fazem parte da regra de negócio mapeado no código, essas informações precisam estar fortemente 
+identificadas como não participantes da regra de negócio mas devem enriquecer a resposta através da identificação da linguagem ubiqua de seus usuários }
+
+-- nesta camada os simbolos e jargoes de código devem produzir um mapeamento que descreva a programação imperativa 
+-- teste socrático 
+identifique se no nível 3 é possível formar multiplos mapeamnetos de mesmo nível em sima dos níveis anteriores e não apenas um nível totalmente inflado,
+ os níveis devem ser iterados conforme a necessidade para gerar um fluxo de tela, ou explicar a regra de negócio e definir os escopos de cada aplicação, 
+ todas as informações precisam funcionar juntas mas são independentes:
+Fluxo de telas, Isolamento de aplicações , Isolamento de domínio , Isolamento de telas.
+O Usuário solicitará um prompt com lingaguem ubiqua e um nome de tela a IA precisa identificar qual tela e seu fluxo está na prompt, utilizar linguagem ubiqua 
+que pertence ao call flow do nível anterior e enriquecer a compreensão do usuário com as etapas que compõe este fluxo de tela 
 
 **** graficos 
 //************ alimentação de informações por mapeamento 
@@ -76,7 +102,9 @@ deve ser possível identificar onde faz parte de uma aplicação e quantas aplic
 mapeamento de infraestrutura da empresa através dos dados fornecidos com sua infraestrutura devem ser solicitados e deve ser possível formar um grafico onde
 seja identificado cada sala ou parte da ifnraestrutura e quais setores atuam neles junto da regra de negócio, dominio que são utilizados por cada pessoa
 
-
+[ grafico 3 ]
+grafico de setores e partes do negócio que as utilizam, deve ser possível que as informações extraídas sejam capazes de fornecer as partes 
+do sistemas que são acessadas por cada grupo de pessoas e quais partes físicas da estrutura organizacional elas participam 
 
 
 
@@ -84,3 +112,6 @@ seja identificado cada sala ou parte da ifnraestrutura e quais setores atuam nel
 
 faça um plano de execução em ordem que possa ser executado em uma pasta que contenha todos os projetos de um monolito 
 composto por 700 modulos. 
+o plano de execução deve seguir o padrão [incremental build model] que estará classificado com os caracteres {} com uma condição dentro, a execução deve parar e solicitar ao usuário que 
+forneça os dados necessarios para dar continuidade. 
+

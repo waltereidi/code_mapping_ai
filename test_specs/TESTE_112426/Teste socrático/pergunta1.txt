@@ -1,0 +1,3 @@
+dentifique se no nível 3 é possível formar multiplos mapeamnetos de mesmo nível em sima dos níveis anteriores e não apenas um nível totalmente inflado, os níveis devem ser iterados conforme a necessidade para gerar um fluxo de tela, ou explicar a regra de negócio e definir os escopos de cada aplicação, todas as informações precisam funcionar juntas mas são independentes:
+Fluxo de telas, Isolamento de aplicações , Isolamento de domínio , Isolamento de telas.
+O Usuário solicitará um prompt com lingaguem ubiqua e um nome de tela a IA precisa identificar qual tela e seu fluxo está na prompt, utilizar linguagem ubiqua que pertence ao call flow do nível anterior e enriquecer a compreensão do usuário com as etapas que compõe este fluxo de tela 
