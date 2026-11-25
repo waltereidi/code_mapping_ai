@@ -5,6 +5,9 @@ Repositório de metadados extraídos do monolito hospitalar **SIHOSP (`SIHOSP_HC
 > [!NOTE]
 > **Status da Consolidação:** `CONSOLIDATION_COMPLETED` — Todos os 6 gates bloqueantes (`GATE-L1.0` a `GATE-L4.1`) foram satisfeitos e os **230 projetos** do monolito foram consolidados.
 
+> [!IMPORTANT]
+> **Política de Confidencialidade:** Por segurança e sigilo institucional, expressões literais de código, nomes de tabelas/colunas internas, identificadores específicos de regras de negócio e critérios clínicos/financeiros detalhados foram **omitidos ou abstraídos** nesta documentação pública, mantendo-se apenas a estrutura arquitetural, métricas agregadas e fluxos representativos.
+
 ---
 
 ## 📊 Números Consolidados do Monolito
@@ -155,53 +158,46 @@ Foram extraídas **1.014 pré-condições impeditivas** que interrompem ou rever
 | `centro-cirurgico` | 26 | `spot-forms` | 23 |
 | `agendamentos` | 25 | `agendamentos-forms` | 23 |
 
-#### Fluxo de Validação de Regras (Exemplos Reais)
+#### Fluxo Abstrato de Validação e Bloqueio de Regras
+
+Os metadados classificam as pré-condições em **padrões estruturais de validação** (sem expor a lógica condicional interna de cada regra):
 
 ```mermaid
 flowchart TD
-    subgraph CC["Regras: Centro Cirúrgico (centro-cirurgico)"]
-        CC1{"cirurgia.Carater == null ||\ncirurgia.Convenio == null ||\ncirurgia.Infra == null ||\ncirurgia.Mapa == null"}
-        CC2{"!mapa.Dat_hora_chegada.HasValue ||\n!dataHoraInicio.HasValue"}
-        CC3{"ortese.Cirurgia == null ||\nortese.Produto == null ||\nortese.Qtd_ortese == 0"}
-        CC4{"realizado.Dat_hora_inicio.Year == 1 ||\nrealizado.ProcedimentoInterno == null"}
-    end
+    REQ["Ação de Tela (UI) / Evento de Negócio"] --> V1{"[Grupo A] Validação de Entidades Obrigatórias\n(ex.: vínculos e referências nulas)"}
+    V1 -->|"Falha"| RET1["HARD_ANNULMENT_EARLY_RETURN\n(677 regras catalogadas)"]
 
-    subgraph AG["Regras: Agendamentos (agendamentos)"]
-        AG1{"agendamento.Paciente == null ||\nagendamento.Vaga == null ||\n!bVagaLiberada"}
-        AG2{"agendamento.Vaga.Tipo_Caso_Realizado == null"}
-        AG3{"detalhe.QtdProfissional <= 0 ||\ndetalhe.Agenda.Seq_agenda <= 0"}
-    end
+    V1 -->|"OK"| V2{"[Grupo B] Consistência Temporal e Quantitativa\n(ex.: datas, cotas e limites de domínio)"}
+    V2 -->|"Falha"| RET1
 
-    subgraph PA["Regras: Pronto Atendimento (pronto-atendimento)"]
-        PA1{"atendimentoPs.Atendimento == null ||\natendimentoPs.Atendimento.Paciente == null ||\natendimentoPs.CentroCusto == null"}
-        PA2{"des_queixa == null ||\ndes_historia == null ||\ndes_hipotese_diagnostica == null"}
-    end
+    V2 -->|"OK"| V3{"[Grupo C] Integridade Transacional e Permissões\n(ex.: alçadas, pré-requisitos de fluxo)"}
+    V3 -->|"Falha"| ROLL["HARD_ANNULMENT_EXCEPTION_ROLLBACK\n(337 regras catalogadas)"]
 
-    CC1 & CC2 & CC3 & CC4 -->|"Verdadeiro"| BLOQ["HARD_ANNULMENT_EARLY_RETURN\n(Bloqueia gravação / retorna)"]
-    AG1 & AG2 & AG3 -->|"Verdadeiro"| BLOQ
-    PA1 & PA2 -->|"Verdadeiro"| BLOQ
+    V3 -->|"OK"| DML["Execução de Persistência (DML)\nSELECT / INSERT / UPDATE / DELETE"]
 ```
+
+> *Nota: As expressões literais (`expression`) e os critérios específicos por módulo permanecem restritos ao catálogo privado `preconditions_and_impediments_catalog.jsonl`.*
 
 ### 2. Operações de Persistência / DML (`storage_entrypoints_dml_catalog.jsonl`)
 
-Das **3.557** operações DML mapeadas sobre o banco Oracle (`SIHOSP`):
-- **`SELECT`**: `2.217` (consultas de estado, agendas, vagas, atendimentos)
-- **`DELETE`**: `730` (exclusões em tabelas como `K_AGENDAMENTO`, `VAGA`)
+Das **3.557** operações DML mapeadas sobre o banco relacional (nomes de tabelas omitidos):
+- **`SELECT`**: `2.217` (consultas de estado e leitura)
+- **`DELETE`**: `730` (remoções controladas por domínio)
 - **`UPDATE`**: `335` (mutações de estado)
 - **`INSERT`**: `275` (novos registros)
 
 ### 3. Registro de Atividade de Regras e Auditoria (Camada 4)
 
-A auditoria em [`business_rules_activity_registry.json`](output/layer4_graphics/business_rules_activity_registry.json) classifica as regras de negócio por status de uso em produção:
+A auditoria em [`business_rules_activity_registry.json`](output/layer4_graphics/business_rules_activity_registry.json) classifica as regras de negócio mapeadas por **status de utilização em produção** (identificadores e descrições específicas omitidos):
 
-| ID da Regra | Nome da Regra | Domínio | Status |
-| :--- | :--- | :--- | :--- |
-| `REGRA_ATENDIMENTO_URGENCIA` | Classificação de Risco Manchester | Atendimento | `ACTIVE` |
-| `REGRA_AGENDAMENTO_AMBULATORIAL` | Restrição de Vagas por Cota | Agendamento | `ACTIVE` |
-| `REGRA_CIRURGIA_SALA_RESTRITA` | Alocação de Cirurgião Credenciado | Cirurgia | `ACTIVE` |
-| `REGRA_FATURAMENTO_SUS_BPA` | Consistência de Procedimentos SIA/SUS | Faturamento | `ACTIVE` |
-| `REGRA_INTERNACAO_LEITO_COVID` | Reserva Exclusiva Leito de Isolamento | Internação | `LOW_UTILIZATION` |
-| `REGRA_MIGRACAO_SISTEMA_LEGADO` | Interface com Banco Antigo DBase | Legado | `INACTIVE_DEAD_CODE` |
+| Categoria de Regra (Anonimizada) | Domínio | Status de Auditoria |
+| :--- | :--- | :--- |
+| `RULE_URGENCIA_01` *(Classificação / Triagem)* | Atendimento | `ACTIVE` |
+| `RULE_AGENDA_02` *(Controle de Vagas)* | Agendamento | `ACTIVE` |
+| `RULE_CIRURGIA_03` *(Alocação / Restrição)* | Cirurgia | `ACTIVE` |
+| `RULE_FATURAMENTO_04` *(Consistência / Produção)* | Faturamento | `ACTIVE` |
+| `RULE_INTERNACAO_05` *(Reserva Especial)* | Internação | `LOW_UTILIZATION` |
+| `RULE_LEGADO_06` *(Integração Descontinuada)* | Legado | `INACTIVE_DEAD_CODE` |
 
 ---
 
